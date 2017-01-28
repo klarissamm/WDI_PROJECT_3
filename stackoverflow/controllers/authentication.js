@@ -6,7 +6,7 @@ module.exports = {
 
 const User           = require('../model/user');
 const config         = require('../config/config');
-const jwt            = require('jsonwebtoken');         // used to create, sign, and verify tokens
+const jwt            = require('jsonwebtoken');    // used to create, sign, and verify tokens
 
 function authenticationsRegister(req, res){
   const newUser = new User(req.body.user);
