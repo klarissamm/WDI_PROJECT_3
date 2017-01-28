@@ -1,4 +1,4 @@
-const mongoose  = require('mongoose');             //mongoose - required to connect to mongodb
+const mongoose  = require('mongoose');      //mongoose - required to connect to mongodb
 const User      = require('../model/user');
 const config    = require('../config/config');
 
@@ -22,27 +22,45 @@ mongoose.connect(config.database(), (err) => {
     'bio': 'Hi',
     'role': 'ADMIN'
   },{
-    'name': 'Ismael',
-    'email': 'ismaelbacha@hotmail.com',
+    'name': 'Klarissa',
+    'email': 'klarissamunz@gmail.com',
     'password': 'password',
     'passwordConfirmation': 'password',
-    'github': 'ismaelocaramelo',
-    'image': 'ismael.png',
+    'github': 'klarissamm',
+    'image': 'klarissamm.png',
     'bio': 'Hi',
     'role': 'ADMIN'
   },{
-    'name': 'Ismael',
-    'email': 'ismaelbacha@hotmail.com',
+    'name': 'Jamie',
+    'email': 'jgranthamburton@gmail.com',
     'password': 'password',
     'passwordConfirmation': 'password',
     'github': 'ismaelocaramelo',
-    'image': 'ismael.png',
+    'image': 'Jamie.png',
+    'bio': 'Hi',
+    'role': 'ADMIN'
+  },{
+    'name': 'Hudhayfa',
+    'email': 'hudhayfajamalkhan@gmail.com',
+    'password': 'password',
+    'passwordConfirmation': 'password',
+    'github': '*******',
+    'image': 'Hudhayfa.png',
+    'bio': 'Hi',
+    'role': 'ADMIN'
+  },{
+    'name': 'Aleksandra M',
+    'email': '@aleksmikolajczyk',
+    'password': 'password',
+    'passwordConfirmation': 'password',
+    'github': '*******',
+    'image': 'Aleksandra.png',
     'bio': 'Hi',
     'role': 'ADMIN'
   }];
 
   User.insertMany(admins, (err) => {
     if(err) return err;
-    return logger.info('Admins created');
+    return console.log('Admins created');
   });
 });
