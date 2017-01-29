@@ -29,7 +29,7 @@ app.use(jwtErrorHandler);
 
 function jwtErrorHandler(err, req, res, next){
   if (err.name !== 'UnauthorizedError') return next();
-  return res.status(401).json({ message: 'Unauthorized request.' });
+  return res.status(401).json({ message: 'Unauthorized Request.' });
 }
 
 app.use('/api', routes);
