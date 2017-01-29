@@ -15,6 +15,14 @@ const userSchema = mongoose.Schema({
   passwordHash: {type: String, required: true}
 });
 
+userSchema.set('toJSON', {
+  transform: function(doc, ret){
+    delete ret.passwordHash;
+    delete ret.__v;
+  return ret;
+  }
+});
+
 userSchema
   .virtual('password')
   .set(setPassword);

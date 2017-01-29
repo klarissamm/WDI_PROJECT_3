@@ -57,14 +57,15 @@ name
   email: sdfsdf@hotmail.com,
   githubName: sdsdfd,
   charity: blah
-    language: { JavaScrip, question: {title, answers: {fdsf, dfsdf, fsdf}}}
+    question: { JavaScrip, javascript: {title, answers: {fdsf, dfsdf, fsdf}}}
       ]
     ]
 
 user {
   email:
-  githubName:
-  charity:
+  username:
+  githubLink:
+  number
   language: { language Schema }
 }
 
@@ -83,5 +84,6 @@ Question {
 Answer {
   title
   owner
+  winner default false
   description
 }
