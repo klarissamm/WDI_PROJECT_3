@@ -51,12 +51,16 @@
   },
   "dependencies": {
     "angular-ui-bootstrap": "^2.5.0",
+    "bcrypt": "^1.0.2",
     "body-parser": "^1.13.2",
     "cors": "^2.8.1",
     "express": "^4.14.0",
+    "express-jwt": "^5.1.0",
+    "jsonwebtoken": "^7.2.1",
     "mongoose": "^4.0.7",
     "morgan": "~1.6.1",
-    "ui-router": "^1.0.0-alpha.3"
+    "ui-router": "^1.0.0-alpha.3",
+    "validator": "^6.2.1"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
