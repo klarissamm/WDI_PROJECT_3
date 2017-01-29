@@ -8,7 +8,7 @@ module.exports = {
 const mongoose = require('mongoose');
 const User = require('../model/user');
 
-function UsersIndex(req, res){
+function usersIndex(req, res){
   User
     .find({}, (err, users) => {
       if (err) return res.status(500).json({ message: 'Something went wrong.' });
@@ -18,7 +18,7 @@ function UsersIndex(req, res){
     });
 }
 
-function UsersShow(req, res){
+function usersShow(req, res){
     User
     .findById({ _id: req.params.id }, (err, user) => {
       if (err) return res.status(500).json({ message: 'Something went wrong.' });
@@ -30,7 +30,7 @@ function UsersShow(req, res){
     });
 }
 
-function UsersUpdate(req, res){
+function usersUpdate(req, res){
   const userId = (req.role === 'ADMIN') ? req.params.id : req.decoded.id;
     User
     .findByIdAndUpdate(userId, req.body.user, {new: true}, (err, user) => {
@@ -40,7 +40,7 @@ function UsersUpdate(req, res){
     });
 }
 
-function userDelete(req, res){
+function usersDelete(req, res){
   if(req.role === 'ADMIN'){
     User.findByIdAndRemove(req.params.id, (err) => {
       if (err) return res.status(500).json({ message: 'Something went wrong.' });
