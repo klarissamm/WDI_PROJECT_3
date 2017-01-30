@@ -1,71 +1,122 @@
 const mongoose  = require('mongoose');
-const User      = require('../model/user');
+const User      = require('../models/user');
+const Answer    = require('../models/answer');
+const Language  = require('../models/language');
+const Question  = require('../models/question');
 const config    = require('../config/config');
+const async     = require('async');
 
 //connection to the DB
 mongoose.Promise = global.Promise;
-mongoose.connect(config.database(), (err) => {
+mongoose.connect(config.db, (err) => {
   if(err) return console.log(`Connection error: ${err}`);
-  console.log(`Connected to db: ${config.database()}`);
-
-  User.collection.drop();
-
- // NEEDS TO FINISHED;
-  const admins = [{
-    'name': 'Ismael',
-    'email': 'ismaelbacha@hotmail.com',
-    'password': 'password',
-    'passwordConfirmation': 'password',
-    'github': 'ismaelocaramelo',
-    'image': 'ismael.png',
-    'bio': 'Hi',
-    'role': 'admin'
-  },{
-    'name': 'Klarissa',
-    'email': 'klarissamunz@gmail.com',
-    'password': 'password',
-    'passwordConfirmation': 'password',
-    'github': 'klarissamm',
-    'image': 'klarissamm.png',
-    'bio': 'Hi',
-    'role': 'admin'
-  },{
-    'name': 'Jamie',
-    'email': 'jgranthamburton@gmail.com',
-    'password': 'password',
-    'passwordConfirmation': 'password',
-    'github': 'ismaelocaramelo',
-    'image': 'Jamie.png',
-    'bio': 'Hi',
-    'role': 'admin'
-  },{
-    'name': 'Hudhayfa',
-    'email': 'hudhayfajamalkhan@gmail.com',
-    'password': 'password',
-    'passwordConfirmation': 'password',
-    'github': '*******',
-    'image': 'Hudhayfa.png',
-    'bio': 'Hi',
-    'role': 'admin'
-  },{
-    'name': 'Aleksandra M',
-    'email': '@aleksmikolajczyk',
-    'password': 'password',
-    'passwordConfirmation': 'password',
-    'github': '*******',
-    'image': 'Aleksandra.png',
-    'bio': 'Hi',
-    'role': 'admin'
-  }];
-
-  User.insertMany(admins, (err) => {
-    if(err) return err;
-    return console.log('Admins created');
-  });
+  console.log(`Connected to db: ${config.db}`);
 });
 
-// Create a user
-// Create a language
-// Create (several) questions for that language
-// Create (several) answers for those questions
-// Have one of them marked as the correct answer
+async.waterfall([
+  dropCollections,
+  createLanguages,
+  createAskingUser,
+  createQuestion,
+  createAnsweringUser,
+  createAnswer
+], function end(err) {
+  if (err) {
+    console.log('ERROR', err);
+    return process.exit();
+  }
+  console.log('SUCCESS');
+  return process.exit();
+});
+
+function dropCollections(done) {
+  User.collection.drop();
+  Answer.collection.drop();
+  Question.collection.drop();
+  Language.collection.drop();
+  return done(null);
+}
+
+function createLanguages(done) {
+  Language
+    .create([
+      { name: 'JavaScript' },
+      { name: 'Ruby'},
+      { name: 'C++'},
+      { name: 'Elixir'},
+      { name: 'Erlang'},
+      { name: 'Go'}
+    ], (err, languages) => {
+      if (err) return done(err);
+      console.log(`${languages.length} Languages created!`);
+      return done(null, languages);
+    });
+}
+
+function createAskingUser(languages, done) {
+  User
+    .create({
+      name: 'Gigi',
+      email: 'gigi@gmail.com',
+      password: 'password',
+      passwordConfirmation: 'password',
+      github: 'gigi_loves_coding',
+      image: 'gigi.png',
+      bio: 'I have been a web developer for 1 year working for the   government',
+      charity: ''
+    }, (err, user) => {
+      if (err) return done(err);
+      console.log(`${user.name} was created`);
+      return done(null, user);
+    });
+}
+
+function createQuestion(user, done) {
+  Language
+    .findOne({ name: 'JavaScript'}, (err, language) => {
+      if (err) return done(err);
+      Question
+        .create({
+          title: 'How can I disable .onclick for element\'s children?',
+          description: 'I cannot mark a checkbox option as selected or deselect it. How can I make it available?',
+          status: 'answered',
+          owner: user._id,
+          language: language._id
+        }, (err, question) => {
+          if (err) return done(err);
+          console.log(`${question.title} was created`);
+          return done(null, question);
+        });
+    });
+}
+
+function createAnsweringUser(question, done) {
+  User
+    .create({
+      name: 'Gigi2',
+      email: 'gigi2@gmail.com',
+      password: 'password',
+      passwordConfirmation: 'password',
+      github: 'gigi2_loves_coding',
+      image: 'gigi2.png',
+      bio: 'I have been a web developer for 1 year working for the   government',
+      charity: ''
+    }, (err, user) => {
+      if (err) return done(err);
+      console.log(`${user.name} was created`);
+      return done(null, user, question);
+    });
+}
+
+function createAnswer(user, question, done) {
+  Answer.create({
+    description: 'You should remove the click handler once you have populated the div with the checkboxes',
+    chosen: true,
+    owner: user._id,
+    question: question._id
+  }, (err, answer) => {
+    if (err) return done(err);
+    console.log(`${answer.description} was created`);
+    return done(null);
+  });
+}
