@@ -7,8 +7,7 @@ module.exports = {
 };
 
  //Needs testing Insomnia!!
-const mongoose = require('mongoose');
-const Language = require('../model/language');
+const Language = require('../models/language');
 
 function languagesIndex(req, res){
   Language
@@ -22,9 +21,7 @@ function languagesIndex(req, res){
 
 function languagesCreate(req, res){
   if(req.decoded && req.role === 'ADMIN'){
-    const language = new Language(req.body.name);
-
-    language.save((err, language) => {
+    Language.create(req.body.language, (err, language) => {
       if (err) return res.status(500).json({ message: 'Something went wrong.' });
       return res.status(201).json(language);
     });
@@ -39,26 +36,27 @@ function languagesShow(req, res){
       if (err) return res.status(500).json(err);
       if (!language) return res.status(404).json({ error: 'No language was found.' });
 
-      return res.status(200).json(language.questions);
+      return res.status(200).json(language);
     });
 }
 
 function languagesUpdate(req, res){
   if(req.decoded && req.role === 'ADMIN'){
     Language
-    .findByIdAndUpdate(req.params.id, req.body.language, (err, language) => {
-      if (err) return res.status(500).json({ message: 'Something went wrong.' });
-      if (!language) return res.status(404).json({ message: 'Language not found.' });
-      return res.status(200).json(language);
+      .findByIdAndUpdate(req.params.id, req.body.language, {new: true}, (err, language) => {
+        if (err) return res.status(500).json({ message: 'Something went wrong.' });
+        if (!language) return res.status(404).json({ message: 'Language not found.' });
+        return res.status(200).json(language);
     });
   }
 }
 
 function languagesDelete(req, res){
   if(req.decoded && req.role === 'ADMIN'){
-    Language.findByIdAndRemove(req.params.id, err => {
-      if (err) return res.status(500).json({ message: 'Something went wrong.' });
-      return res.sendStatus(204);
+    Language
+      .findByIdAndRemove(req.params.id, err => {
+        if (err) return res.status(500).json({ message: 'Something went wrong.' });
+        return res.status(204).json({success: true});
     });
   }
 }

@@ -5,8 +5,7 @@ module.exports = {
   delete: usersDelete
 };
 
-const mongoose = require('mongoose');
-const User = require('../model/user');
+const User = require('../models/user');
 
 function usersIndex(req, res){
   User
@@ -19,7 +18,7 @@ function usersIndex(req, res){
 }
 
 function usersShow(req, res){
-    User
+  User
     .findById({ _id: req.params.id }, (err, user) => {
       if (err) return res.status(500).json({ message: 'Something went wrong.' });
       if (!user) return res.status(404).json({ message: 'User not found.' });
@@ -32,16 +31,16 @@ function usersShow(req, res){
 
 function usersUpdate(req, res){
   const userId = (req.role === 'ADMIN') ? req.params.id : req.decoded.id;
-    User
+  User
     .findByIdAndUpdate(userId, req.body.user, {new: true}, (err, user) => {
       if (err) return res.status(500).json({ message: 'Something went wrong.' });
-      if (!user) return res.status(404).json({ user: 'Language not found.' });
+      if (!user) return res.status(404).json({ user: 'User not found.' });
       return res.status(200).json(user);
     });
 }
 
 function usersDelete(req, res){
-  if(req.role === 'ADMIN'){
+  if(req.role === 'ADMIN' && (req.params.id !== req.decoded.id)){ // the 2nd condition avoids Admin to delete himself
     User.findByIdAndRemove(req.params.id, (err) => {
       if (err) return res.status(500).json({ message: 'Something went wrong.' });
       return res.status(200).json({success: true});

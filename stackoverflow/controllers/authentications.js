@@ -1,10 +1,10 @@
 module.exports = {
   register: authenticationsRegister,
   login: authenticationsLogin,
-  tokenAndRole: verifyTokenAndGetRole
+  verifyToken: verifyToken
 };
 
-const User           = require('../model/user');
+const User           = require('../models/user');
 const config         = require('../config/config');
 const jwt            = require('jsonwebtoken');    // used to create, sign, and verify tokens
 
@@ -30,7 +30,7 @@ function authenticationsLogin(req, res){
     return res.status(200).json({success: true, message: 'Welcome back.', user, token});
   });
 }
-function verifyTokenAndGetRole(req, res, next){
+function verifyToken(req, res, next){
   let token = '';
   if(req.headers && req.headers['authorization'] && req.headers['authorization'].split(' ').length === 2){
     token = req.headers['authorization'].split(' ')[1];

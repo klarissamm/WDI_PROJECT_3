@@ -39,6 +39,8 @@ userSchema
   .path('email')
   .validate(validateEmail);
 
+userSchema.methods.validatePassword = validatePassword;
+
 function setPassword(password){
   this._password = password;
   this.passwordHash = bcrypt.hashSync(password, bcrypt.genSaltSync(8)); //by default genSaltSync(10)
