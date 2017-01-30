@@ -2,69 +2,53 @@
 <html ng-app="ourApp">
   <head>
     <meta charset="utf-8">
-    <title>Our app project</title>
-    <script src="app.js"></script>
+    <title>Our App</title>
+    <base href="/" />
+    <!-- inject:js -->
+    <!-- endinject -->
+    <!-- inject:css -->
+    <!-- endinject -->
   </head>
-  <body>
-<div ng-controller="AccordionDemoCtrl">
-  <script type="text/ng-template" id="group-template.html">
-    <div class="panel-heading">
-      <h4 class="panel-title" style="color:#fa39c3">
-        <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading">
-          <span uib-accordion-header ng-class="{'text-muted': isDisabled}">
-            {{heading}}
-          </span>
-        </a>
-      </h4>
-    </div>
-    <div class="panel-collapse collapse" uib-collapse="!isOpen">
-      <div class="panel-body" style="text-align: right" ng-transclude></div>
-    </div>
-  </script>
+  <body ng-controller="MainCtrl as main">
+    <header>
+      <nav class="navbar navbar-default">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <li><a class="navbar-brand" ui-sref="home">Angular Authentication</a></li>
+          </div>
 
-  <p>
-    <button type="button" class="btn btn-default btn-sm" ng-click="status.open = !status.open">Toggle last panel</button>
-    <button type="button" class="btn btn-default btn-sm" ng-click="status.isFirstDisabled = ! status.isFirstDisabled">Enable / Disable first panel</button>
-  </p>
-
-  <div class="checkbox">
-    <label>
-      <input type="checkbox" ng-model="oneAtATime">
-      Open only one at a time
-    </label>
-  </div>
-  <uib-accordion close-others="oneAtATime">
-    <div uib-accordion-group class="panel-default" heading="Static Header, initially expanded" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
-      This content is straight in the template.
-    </div>
-    <div uib-accordion-group class="panel-default" heading="{{group.title}}" ng-repeat="group in groups">
-      {{group.content}}
-    </div>
-    <div uib-accordion-group class="panel-default" heading="Dynamic Body Content">
-      <p>The body of the uib-accordion group grows to fit the contents</p>
-      <button type="button" class="btn btn-default btn-sm" ng-click="addItem()">Add Item</button>
-      <div ng-repeat="item in items">{{item}}</div>
-    </div>
-    <div uib-accordion-group class="panel-default" heading="Custom template" template-url="group-template.html">
-      Hello
-    </div>
-    <div uib-accordion-group class="panel-default" is-open="status.isCustomHeaderOpen" template-url="group-template.html">
-      <uib-accordion-heading>
-        Custom template with custom header template <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.isCustomHeaderOpen, 'glyphicon-chevron-right': !status.isCustomHeaderOpen}"></i>
-      </uib-accordion-heading>
-      World
-    </div>
-    <div uib-accordion-group class="panel-danger" heading="Delete account">
-      <p>Please, to delete your account, click the button below</p>
-      <button class="btn btn-danger">Delete</button>
-    </div>
-    <div uib-accordion-group class="panel-default" is-open="status.open">
-      <uib-accordion-heading>
-        I can have markup, too! <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
-      </uib-accordion-heading>
-      This is just some content to illustrate fancy headings.
-    </div>
-  </uib-accordion>
-</div>
-</body>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <p class="navbar-text">Welcome, {{ main.user.username }}</p>
+              </li>
+              <li>
+                <a ui-sref="register">Register</a>
+              </li>
+              <li>
+                <a ui-sref="login">Login</a>
+              </li>
+              <li>
+                <a ui-sref="usersIndex">Users</a>
+              </li>
+              <li>
+                <a ng-click="main.logout()">Logout</a>
+              </li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+    </header>
+    <main class="container" ui-view></main>
+  </body>
 </html>
+
+<!--Connect our forms to use these new routes ui-sref  -->
