@@ -2,7 +2,7 @@ module.exports = {
   register: authenticationsRegister,
   login: authenticationsLogin,
   assignUser: assignUser
-}; 
+};
 
 const jwt    = require('jsonwebtoken');
 const User   = require('../models/user');
@@ -13,8 +13,10 @@ const config = require('../config/config');
  * When a user registers, the default 'role' is 'user'.
  * This has already been set in the model.
  */
+
 function authenticationsRegister(req, res){
-  User.create(req.body.user, (err, user) => {
+  console.log(req.body);
+  User.create(req.body, (err, user) => {
     if (err) return res.status(500).json({ message: 'Something went wrong.' });
 
     const token = jwt.sign({ id: user.id }, config.secret, { expiresIn: 60*60*24 });
