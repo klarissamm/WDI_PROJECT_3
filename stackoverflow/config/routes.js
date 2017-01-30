@@ -1,42 +1,54 @@
-const router = require('express').Router();
-const question  = require('../controllers/questions');
-const user  = require('../controllers/users');
-const answer = require('../controllers/answers');
-const lenguage = require('../controllers/languages');
-const authentication   = require('../controllers/authentications');
+const router          = require('express').Router();
+const questions       = require('../controllers/questions');
+const users           = require('../controllers/users');
+const answers         = require('../controllers/answers');
+const languages       = require('../controllers/languages');
+const authentications = require('../controllers/authentications');
 
 //this middleware verifies the token
-router.use(authentication.verifyToken);
+router.use(authentications.verifyToken);
 
-//#######################Lenguages Routes############################
+//#######################Authentications Routes############################
 
-router.route('/lenguages')
-  .get(lenguage.index)
-  .post(lenguage.create);
-router.route('/lenguages/:id')
-  .get(lenguage.show)
-  .put(lenguage.update)
-  .delete(lenguage.delete);
+router.route('/register')
+  .post(authentications.register);
+router.router('/login')
+  .post(authentications.login);
+
+//#######################Languages Routes############################
+
+router.route('/languages')
+  .get(languages.index)
+  .post(languages.create);
+router.route('/languages/:id')
+  .get(languages.show)
+  .put(languages.update)
+  .delete(languages.delete);
 
 //#######################Users Routes############################
+
 router.route('/users')
-  .get(user.index);
+  .get(users.index);
 router.route('/users/:id')
-  .get(user.show)
-  .put(user.update)
-  .delete(user.delete);
+  .get(users.show)
+  .put(users.update)
+  .delete(users.delete);
 
 //#######################Questions Routes############################
+
 router.route('/questions')
-  .post(question.create);
+  .post(questions.create);
 router.route('/questions/:id')
-  .get(question.show)
-  .delete(question.delete);
+  .get(questions.show)
+  .delete(questions.delete);
+
 //#######################Answers Routes############################
+
+// Needs to be more restful
 router.route('/addanswer/:id') // id of the question!!!
-  .post(answer.create);
+  .post(answers.create);
 router.route('/answers/:id')
-  .get(answer.updateRight)
-  .delete(answer.delete);
+  .get(answers.updateRight)
+  .delete(answers.delete);
 
 module.exports = router;

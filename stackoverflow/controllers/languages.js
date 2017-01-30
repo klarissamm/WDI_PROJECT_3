@@ -29,15 +29,15 @@ function languagesCreate(req, res){
 }
 
 function languagesShow(req, res){
-    Language
-    .findById({ _id: req.params.id })
-    .populate('questions')
-    .exec((err, language) => {
-      if (err) return res.status(500).json(err);
-      if (!language) return res.status(404).json({ error: 'No language was found.' });
+  Language
+  .findById({ _id: req.params.id })
+  .populate('questions')
+  .exec((err, language) => {
+    if (err) return res.status(500).json(err);
+    if (!language) return res.status(404).json({ error: 'No language was found.' });
 
-      return res.status(200).json(language);
-    });
+    return res.status(200).json(language);
+  });
 }
 
 function languagesUpdate(req, res){
@@ -47,7 +47,7 @@ function languagesUpdate(req, res){
         if (err) return res.status(500).json({ message: 'Something went wrong.' });
         if (!language) return res.status(404).json({ message: 'Language not found.' });
         return res.status(200).json(language);
-    });
+      });
   }
 }
 
@@ -57,6 +57,6 @@ function languagesDelete(req, res){
       .findByIdAndRemove(req.params.id, err => {
         if (err) return res.status(500).json({ message: 'Something went wrong.' });
         return res.status(204).json({success: true});
-    });
+      });
   }
 }

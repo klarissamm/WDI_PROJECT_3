@@ -10,7 +10,8 @@ const jwt            = require('jsonwebtoken');    // used to create, sign, and 
 
 function authenticationsRegister(req, res){
   const newUser = new User(req.body.user);
-  newUser['role'] = 'USER'; //by default
+  // (Already set in the user model by default?)
+  // newUser['role'] = 'USER';
   newUser.save((err, user) => {
     if (err) return res.status(500).json({success: false, message: `${err}`});
 
@@ -30,6 +31,7 @@ function authenticationsLogin(req, res){
     return res.status(200).json({success: true, message: 'Welcome back.', user, token});
   });
 }
+
 function verifyToken(req, res, next){
   let token = '';
   if(req.headers && req.headers['authorization'] && req.headers['authorization'].split(' ').length === 2){
