@@ -258,6 +258,7 @@ let userId;
 //       'title': 'How can I disable .onclick for element\'s children?',
 //       'description': 'I cannot mark a checkbox option as selected or deselect it. How can I make it available?'
 //       'status': 'answered',
+user: 
 //     }
 //
 //     question.save(err, question) => {

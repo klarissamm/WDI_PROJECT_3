@@ -15,6 +15,7 @@ const userSchema = mongoose.Schema({
   questions: [{ type: mongoose.Schema.ObjectId, ref: 'Question' }]
 });
 
+
 userSchema.set('toJSON', {
   transform: function(doc, ret){
     delete ret.passwordHash;

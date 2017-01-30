@@ -22,7 +22,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(dest));
 
 // NEEDS TO BE UPDATED WITH UNPROTECTED ROUTES
-//
 app.use('/api', expressJWT({ secret: config.secret })
   .unless({
     path: [
