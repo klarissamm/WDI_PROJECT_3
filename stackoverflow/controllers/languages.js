@@ -14,11 +14,13 @@ const Language = require('../models/language');
  */
 function languagesIndex(req, res){
   Language
-    .find({}, (err, language) => {
-      if (err) return res.status(500).json({ message: 'Something went wrong.' });
-      if (!language) return res.status(404).json({ message: 'Language not found.' });
-      return res.status(200).json(language);
-    });
+  .find({})
+  .populate(['questions'])
+  .exec((err, language) => {
+    if (err) return res.status(500).json(err);
+    if (!language) return res.status(404).json({ error: 'No language was found.' });
+    return res.status(200).json(language);
+  });
 }
 
 /*

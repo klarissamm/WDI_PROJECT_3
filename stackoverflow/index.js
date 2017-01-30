@@ -22,14 +22,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(dest));
 
 // NEEDS TO BE UPDATED WITH UNPROTECTED ROUTES
-//
-// app.use('/api', expressJWT({ secret: config.secret })
-//   .unless({
-//     path: [
-//       { url: '/api/register', methods: ['POST'] },
-//       { url: '/api/login',    methods: ['POST'] }
-//     ]
-//   }));
+app.use('/api', expressJWT({ secret: config.secret })
+  .unless({
+    path: [
+      { url: '/api/register', methods: ['POST'] },
+      { url: '/api/login',    methods: ['POST'] }
+    ]
+  }));
 
 app.use(jwtErrorHandler);
 

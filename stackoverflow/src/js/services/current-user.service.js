@@ -12,12 +12,12 @@ function CurrentUserService(TokenService, $rootScope, User) {
       User
         .get({ id: decoded.id }).$promise
         .then(data => {
-          self.currentUser =data;
+          self.currentUser = data;
           $rootScope.$broadcast('loggedIn');
         });
     }
   };
-  
+
   self.getUser();
 
   self.removeUser = () => {

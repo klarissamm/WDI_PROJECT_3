@@ -11,4 +11,11 @@ const questionSchema = mongoose.Schema({
   owner: { type: mongoose.Schema.ObjectId, ref: 'User'}
 });
 
+
+questionSchema.pre('save', function(done) {
+  return this.model('Language').findByIdAndUpdate(this.language, { $addToSet: { questions: this._id }}, done);
+});
+
+// Add to the owner
+
 module.exports = mongoose.model('Question', questionSchema);

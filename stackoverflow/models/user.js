@@ -12,9 +12,9 @@ const userSchema = mongoose.Schema({
   bio: { type: String, trim: true },
   charity: {type: String, trim: true},
   role: {type: String, required: true, trim: true, enum: userTypes, default: 'user'},
-  languages: [{ type: mongoose.Schema.ObjectId, ref: 'Language' }],
   questions: [{ type: mongoose.Schema.ObjectId, ref: 'Question' }]
 });
+
 
 userSchema.set('toJSON', {
   transform: function(doc, ret){
