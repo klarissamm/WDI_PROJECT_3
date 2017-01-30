@@ -7,6 +7,10 @@ module.exports = {
 
 const User = require('../models/user');
 
+/*
+ * UNPROTECTED
+ * GET /users
+ */
 function usersIndex(req, res){
   User
     .find({}, (err, users) => {
@@ -17,33 +21,45 @@ function usersIndex(req, res){
     });
 }
 
+/*
+ * UNPROTECTED
+ * GET /users/:id
+ */
 function usersShow(req, res){
   User
-    .findById({ _id: req.params.id }, (err, user) => {
+    .findById({ _id: req.params.id })
+    .populate(['languages', 'questions'])
+    .exec((err, user) => {
       if (err) return res.status(500).json({ message: 'Something went wrong.' });
       if (!user) return res.status(404).json({ message: 'User not found.' });
-      user.populate('languages questions', (err) => {
-        if (err) return res.status(500).json({ message: 'Something went wrong.' });
-        return res.status(200).json(user);
-      });
+      return res.status(200).json(user);
     });
 }
 
+/*
+ * PROTECTED
+ * PUT /users/:id
+ */
 function usersUpdate(req, res){
-  const userId = (req.role === 'ADMIN') ? req.params.id : req.decoded.id;
   User
-    .findByIdAndUpdate(userId, req.body.user, {new: true}, (err, user) => {
+    .findByIdAndUpdate(req.user._id, req.body.user, {new: true}, (err, user) => {
       if (err) return res.status(500).json({ message: 'Something went wrong.' });
       if (!user) return res.status(404).json({ user: 'User not found.' });
       return res.status(200).json(user);
     });
 }
 
+/*
+ * PROTECTED
+ * DELETE /users/:id
+ */
 function usersDelete(req, res){
-  if(req.role === 'ADMIN' && (req.params.id !== req.decoded.id)){ // the 2nd condition avoids Admin to delete himself
-    User.findByIdAndRemove(req.params.id, (err) => {
-      if (err) return res.status(500).json({ message: 'Something went wrong.' });
-      return res.status(200).json({success: true});
-    });
-  }
+  if (req.user._id === req.params.id) return res.status(500).json({
+    message: 'You can\'t delete yourself'
+  });
+
+  User.findByIdAndRemove(req.params.id, (err) => {
+    if (err) return res.status(500).json({ message: 'Something went wrong.' });
+    return res.status(200).json({success: true});
+  });
 }

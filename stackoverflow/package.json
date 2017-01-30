@@ -50,23 +50,18 @@
     }
   },
   "dependencies": {
-    "angular-ui-bootstrap": "^2.5.0",
     "cors": "^2.8.1",
     "express": "^4.14.0",
-    "ui-router": "^1.0.0-alpha.3",
     "bcrypt": "^1.0.2",
     "body-parser": "^1.15.2",
-    "cheerio": "^0.22.0",
     "express-jwt": "^5.1.0",
     "forever": "^0.15.3",
-    "jake": "^8.0.12",
     "jsonwebtoken": "^7.2.1",
     "mongoose": "^4.4.3",
     "morgan": "^1.7.0",
     "q": "^1.4.1",
     "request-promise": "^2.0.0",
-    "validator": "^6.2.1",
-    "xml2json": "^0.9.0"
+    "validator": "^6.2.1"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",

@@ -5,50 +5,52 @@ const answers         = require('../controllers/answers');
 const languages       = require('../controllers/languages');
 const authentications = require('../controllers/authentications');
 
-//this middleware verifies the token
-router.use(authentications.verifyToken);
-
-//#######################Authentications Routes############################
+/*
+ * UNPROTECTED ROUTES (Do not require a JWT token)
+ */
 
 router.route('/register')
   .post(authentications.register);
-router.router('/login')
+router.route('/login')
   .post(authentications.login);
-
-//#######################Languages Routes############################
-
 router.route('/languages')
-  .get(languages.index)
-  .post(languages.create);
+  .get(languages.index);
+// The language page will show all of the questions
+// e.g. /languages/1212312312313
+// You might want to change this to use a name rather than an id
+// e.g. /languages/ruby
 router.route('/languages/:id')
-  .get(languages.show)
-  .put(languages.update)
-  .delete(languages.delete);
-
-//#######################Users Routes############################
-
+  .get(languages.show);
 router.route('/users')
   .get(users.index);
 router.route('/users/:id')
-  .get(users.show)
-  .put(users.update)
-  .delete(users.delete);
+  .get(users.show);
 
-//#######################Questions Routes############################
+/*
+ * PROTECTED ROUTES (Does require a JWT token)
+ *
+ * authentications.assignUser is a function that will take the
+ * JWT provided in the request and assign to `req.user`
+ * the information about that user
+ */
 
 router.route('/questions')
-  .post(questions.create);
+  .post(authentications.assignUser, questions.create);
 router.route('/questions/:id')
-  .get(questions.show)
-  .delete(questions.delete);
-
-//#######################Answers Routes############################
-
-// Needs to be more restful
-router.route('/addanswer/:id') // id of the question!!!
-  .post(answers.create);
-router.route('/answers/:id')
-  .get(answers.updateRight)
-  .delete(answers.delete);
+  .get(authentications.assignUser, questions.show)
+  .delete(authentications.assignUser, questions.delete);
+router.route('/questions/:id/answers')
+  .post(authentications.assignUser, answers.create);
+router.route('/questions/:question_id/answers/:id')
+  .put(authentications.assignUser, answers.update)
+  .delete(authentications.assignUser, answers.delete);
+router.route('/languages')
+  .post(authentications.assignUser, languages.create);
+router.route('/languages/:id')
+  .put(authentications.assignUser, languages.update)
+  .delete(authentications.assignUser, languages.delete);
+router.route('/users/:id')
+  .put(authentications.assignUser, users.update)
+  .delete(authentications.assignUser, users.delete);
 
 module.exports = router;

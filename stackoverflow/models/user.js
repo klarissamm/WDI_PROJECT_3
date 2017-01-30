@@ -1,18 +1,19 @@
-const mongoose        = require('mongoose');
-const validator       = require('validator');
-const bcrypt          = require('bcrypt');
+const mongoose  = require('mongoose');
+const validator = require('validator');
+const bcrypt    = require('bcrypt');
+const userTypes = ['admin', 'user'];
 
 const userSchema = mongoose.Schema({
   name: { type: String, trim: true, required: true },
-  email: {type: String, trim: true, required: true },
+  email: { type: String, trim: true, required: true },
+  passwordHash: {type: String, required: true},
   github: { type: String, trim: true },
   image: { type: String, trim: true },
   bio: { type: String, trim: true },
-  languages: [{ type: mongoose.Schema.ObjectId, ref: 'Language' }],
   charity: {type: String, trim: true},
-  questions: [{ type: mongoose.Schema.ObjectId, ref: 'Question' }],
-  role: {type: String, required: true, trim: true, enum: ['ADMIN', 'USER'], default: 'USER'},
-  passwordHash: {type: String, required: true}
+  role: {type: String, required: true, trim: true, enum: userTypes, default: 'user'},
+  languages: [{ type: mongoose.Schema.ObjectId, ref: 'Language' }],
+  questions: [{ type: mongoose.Schema.ObjectId, ref: 'Question' }]
 });
 
 userSchema.set('toJSON', {

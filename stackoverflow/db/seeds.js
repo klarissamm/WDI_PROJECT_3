@@ -1,4 +1,4 @@
-const mongoose  = require('mongoose');      //mongoose - required to connect to mongodb
+const mongoose  = require('mongoose');
 const User      = require('../model/user');
 const config    = require('../config/config');
 
@@ -6,7 +6,6 @@ const config    = require('../config/config');
 mongoose.Promise = global.Promise;
 mongoose.connect(config.database(), (err) => {
   if(err) return console.log(`Connection error: ${err}`);
-
   console.log(`Connected to db: ${config.database()}`);
 
   User.collection.drop();
@@ -20,7 +19,7 @@ mongoose.connect(config.database(), (err) => {
     'github': 'ismaelocaramelo',
     'image': 'ismael.png',
     'bio': 'Hi',
-    'role': 'ADMIN'
+    'role': 'admin'
   },{
     'name': 'Klarissa',
     'email': 'klarissamunz@gmail.com',
@@ -29,7 +28,7 @@ mongoose.connect(config.database(), (err) => {
     'github': 'klarissamm',
     'image': 'klarissamm.png',
     'bio': 'Hi',
-    'role': 'ADMIN'
+    'role': 'admin'
   },{
     'name': 'Jamie',
     'email': 'jgranthamburton@gmail.com',
@@ -38,7 +37,7 @@ mongoose.connect(config.database(), (err) => {
     'github': 'ismaelocaramelo',
     'image': 'Jamie.png',
     'bio': 'Hi',
-    'role': 'ADMIN'
+    'role': 'admin'
   },{
     'name': 'Hudhayfa',
     'email': 'hudhayfajamalkhan@gmail.com',
@@ -47,7 +46,7 @@ mongoose.connect(config.database(), (err) => {
     'github': '*******',
     'image': 'Hudhayfa.png',
     'bio': 'Hi',
-    'role': 'ADMIN'
+    'role': 'admin'
   },{
     'name': 'Aleksandra M',
     'email': '@aleksmikolajczyk',
@@ -56,7 +55,7 @@ mongoose.connect(config.database(), (err) => {
     'github': '*******',
     'image': 'Aleksandra.png',
     'bio': 'Hi',
-    'role': 'ADMIN'
+    'role': 'admin'
   }];
 
   User.insertMany(admins, (err) => {
@@ -64,3 +63,9 @@ mongoose.connect(config.database(), (err) => {
     return console.log('Admins created');
   });
 });
+
+// Create a user
+// Create a language
+// Create (several) questions for that language
+// Create (several) answers for those questions
+// Have one of them marked as the correct answer
