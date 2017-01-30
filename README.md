@@ -1,2 +1,2 @@
 # WDI_PROJECT_3
-A team project for WDI 
+A team project for WDI
