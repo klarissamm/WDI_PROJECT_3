@@ -69,3 +69,21 @@ mongoose.connect(config.database(), (err) => {
 // Create (several) questions for that language
 // Create (several) answers for those questions
 // Have one of them marked as the correct answer
+
+
+const user = {
+  'name': 'Hudhayfa',
+  'email': 'hudhayfajamalkhan@gmail.com',
+  'password': 'password',
+  'passwordConfirmation': 'password',
+  'github': '*******',
+  'image': 'Hudhayfa.png',
+  'bio': 'Hi',
+  'role': 'admin'
+}
+
+user.save((err, user) => {
+
+  const
+
+});
