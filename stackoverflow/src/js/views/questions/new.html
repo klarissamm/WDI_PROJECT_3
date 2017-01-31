@@ -1,20 +1,27 @@
 <h2>New Question</h2>
 
+<!-- <select> <option>{{ questionsCreate.languages.name }}</option></select>
+{{ console.log(questionsCreate.languages.name.resource.name)}} -->
+
 <form ng-submit="questionsCreate.questionsCreate()">
   <div class="form-group">
     <label for="title">Title</label>
-    <input type="text" class="form-control" id="title" placeholder="Name" ng-model="questions.question.title">
+    <input type="text" class="form-control" id="title" placeholder="Name" ng-model="questionsCreate.question.title">
   </div>
 
   <div class="form-group">
     <label for="description">Question Description</label>
-    <input type="text" class="form-control" id="description" placeholder="Question description" ng-model="questions.question.description">
+    <input type="text" class="form-control" id="description" placeholder="Question description" ng-model="questionsCreate.question.description">
   </div>
 
-  <div class="form-group">
+  <!-- <div class="form-group">
     <dropdown placeholder="Language" list="languages" selected="language" property="language"></dropdown>
+  </div> -->
+  <div class ="form-group">
+    <select ng-model="language" ng-options="language.name for language in questionsCreate.languages" ng-change="questionsCreate.assignLanguage(language._id)">
+       <option value="">---</option>
+    </select>
   </div>
-  <h2>car</h2>
 
 
   <input type="submit" class="btn btn-default" value="Add">
