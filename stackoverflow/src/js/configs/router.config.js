@@ -28,6 +28,12 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
     templateUrl: '/js/views/users/index.html',
     controller: 'UsersIndexCtrl',
     controllerAs: 'usersIndex'
+  })
+  .state('languages', {
+    url: '/languages',
+    templateUrl: '/js/views/lenguages/index.html',
+    controller: 'LanguagesIndexCtrl',
+    controllerAs: 'languageIndex'
   });
 
   $urlRouterProvider.otherwise('/');
