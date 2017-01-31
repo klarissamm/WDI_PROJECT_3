@@ -8,6 +8,7 @@
     <!-- endinject -->
     <!-- inject:css -->
     <!-- endinject -->
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Paaji|Bungee+Inline|Bungee+Shade|Carter+One|Josefin+Sans" rel="stylesheet">
   </head>
   <body ng-controller="MainCtrl as main">
     <header>
@@ -42,6 +43,9 @@
               </li>
               <li ng-show="main.user">
                 <a ui-sref="usersIndex">Users</a>
+              </li>
+              <li ng-show="main.user">
+                <a ui-sref="user">User</a>
               </li>
               <li ng-show="main.user">
                 <a ui-sref="languages">Languages</a>
