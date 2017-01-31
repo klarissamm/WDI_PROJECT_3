@@ -19,7 +19,7 @@ function answersCreate(req, res){
     if (err) return res.status(500).json(err);
 
     // Could do this in a pre-save hook
-    Question.findById(req.params.id, (err, question) => {
+    Question.findById(req.body.answer.question, (err, question) => {
       if (err) return res.status(500).json({ message: 'Something went wrong.' });
       if (!question) return res.status(404).json({ message: 'Question not found.' });
 
