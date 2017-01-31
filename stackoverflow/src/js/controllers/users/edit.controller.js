@@ -23,7 +23,7 @@ function UsersEditCtrl(User, API, $state, CurrentUserService){
     .update( { id: CurrentUserService.currentUser._id, user: vm.user})
     .$promise
     .then(response => {
-      $state.go('usersIndex');
+      $state.go('userShow', { id: CurrentUserService.currentUser._id });
     });
   };
 }

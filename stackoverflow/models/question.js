@@ -21,6 +21,9 @@ questionSchema.pre('save', function(done) {
   return this.model('User').findByIdAndUpdate(this.owner, { $addToSet: { questions: this._id }}, done);
 });
 
+// questionSchema.pre('save', function(done) {
+//   return this.model('Answer').findByIdAndUpdate(this.answers, { $addToSet: { questions: this._id }}, done);
+// });
 // Add to the owner
 
 module.exports = mongoose.model('Question', questionSchema);

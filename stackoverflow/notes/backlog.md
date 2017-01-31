@@ -15,3 +15,6 @@ language show
 questions show
 
 questions by user -
+
+
+//We need to get the info /questions/:id and get the answers for that specific question
