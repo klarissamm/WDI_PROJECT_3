@@ -18,7 +18,7 @@ questionSchema.pre('save', function(done) {
 
 // this should work. if not, ask alex for help
 questionSchema.pre('save', function(done) {
-  return this.model('User').findByIdAndUpdate(this.user, { $addToSet: { questions: this._id }}, done);
+  return this.model('User').findByIdAndUpdate(this.owner, { $addToSet: { questions: this._id }}, done);
 });
 
 // Add to the owner
