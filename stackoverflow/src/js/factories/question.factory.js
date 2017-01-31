@@ -1,8 +1,11 @@
 angular
   .module('ourApp')
-  .factory('Language', languageFactory);
+  .factory('Question', questionFactory);
 
-languageFactory.$inject = ['API', '$resource'];
-function languageFactory(API, $resource){
-  return $resource(`${API}/question/:id`, { id: '@_id'});
+questionFactory.$inject = ['API', '$resource'];
+function questionFactory(API, $resource){
+  return $resource(`${API}/questions/:id`, { id: '@_id'}, {
+    'query': { method: 'GET', url: `${API}/questions`, isArray: false }
+  }
+);
 }

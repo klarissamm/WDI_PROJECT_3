@@ -1,8 +1,12 @@
 <ul class="list-group">
-  <li class="list-group-item" ng-repeat="question in languageShow.language.questions" ui-sref="">
+  <li class="list-group-item" ng-repeat="question in languageShow.language.questions">
+
     {{ question.title}}, {{ question.description}}
   </li>
-</ul>
+  </ul>
+  <h5 class="mb-1" ui-sref="questionsShow({id: question._id})">Click?</h5>
+
+
 
 
 

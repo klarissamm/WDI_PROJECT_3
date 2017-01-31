@@ -53,7 +53,7 @@ function usersShow(req, res){
  */
 function usersUpdate(req, res){
   User
-    .findByIdAndUpdate(req.user._id, req.body.user, {new: true}, (err, user) => {
+    .findByIdAndUpdate(req.body.id, req.body.user, {new: true}, (err, user) => {
       if (err) return res.status(500).json({ message: 'Something went wrong.' });
       if (!user) return res.status(404).json({ user: 'User not found.' });
       return res.status(200).json(user);
