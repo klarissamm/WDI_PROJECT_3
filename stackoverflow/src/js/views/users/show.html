@@ -22,8 +22,8 @@
                     <a><img src="{{ userShow.user.image }}" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
                     <h3 class="media-heading">{{ userShow.user.name }} <small>Email: {{userShow.user.email}}</small>
                     </h3>
-                    <h3><small>Github: {{userShow.user.github}}</small></h3>
-                    <h3><small>Language: {{userShow.user.language}}</small></h3>
+                    <h4 class="media-heading"><small>Github: {{userShow.user.github}}</small></h4>
+                    <h4 class="media-heading"><small>Language: {{userShow.user.language}}</small></h4>
                     <!-- <h4>Programming Language/('s):  {{ userShow.user.languages }}</h4> -->
                     <span><strong></strong></span>
                         <span class="label label-warning"></span>
@@ -39,7 +39,7 @@
                 </div>
                 <div class="modal-footer">
                     <center>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">I've heard enough about {{userShow.user.name}}</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Dismiss</button>
                     </center>
                 </div>
             </div>

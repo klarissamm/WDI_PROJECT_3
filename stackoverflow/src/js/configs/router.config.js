@@ -71,15 +71,5 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
     controller: 'QuestionsShowCtrl',
     controllerAs: 'QuestionsShow'
   });
-
-  // .state('profile', {
-  //   url: '/user/:id',
-  //   templateUrl: '/js/views/users/show.html',
-  //   controller: 'ProfileCtrl',
-  //   sp: {
-  //     authenticate: true
-  //   }
-
-
   $urlRouterProvider.otherwise('/');
 }
