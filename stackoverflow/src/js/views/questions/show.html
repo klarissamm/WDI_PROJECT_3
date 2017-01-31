@@ -1,1 +1,16 @@
-<h1>what the hell</h1>
+<h1>{{QuestionsShow.question.title}}</h1>
+
+<h2>Answers:</h2>
+<ul>
+  <li ng-repeat="answer in QuestionsShow.question.answers">
+    <h4>{{answer.description}}</h4>
+  </li>
+</ul>
+
+<form ng-submit="QuestionsShow.submitAnswer()">
+  <div class="form-group">
+    <label for="title">Answer</label>
+    <input type="text" class="form-control" id="answer" placeholder="Write your answer here" ng-model="QuestionsShow.newAnswer.description">
+  </div>
+  <input type="submit" name="button" />
+</form>
