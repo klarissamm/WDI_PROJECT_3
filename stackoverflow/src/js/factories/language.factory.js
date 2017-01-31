@@ -4,8 +4,7 @@ angular
 
 languageFactory.$inject = ['API', '$resource'];
 function languageFactory(API, $resource){
-  return $resource(`${API}/languages/:id`, { id: '@_id'}, {
-  });
+  return $resource(`${API}/languages/:id`, { id: '@_id'});
 }
 
 
