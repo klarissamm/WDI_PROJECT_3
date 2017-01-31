@@ -13,13 +13,24 @@ const User = require('../models/user');
  */
 function usersIndex(req, res){
   User
-    .find({}, (err, users) => {
+    .find({})
+    .populate(['questions'])
+    .exec((err, users) => {
       if (err) return res.status(500).json({ message: 'Something went wrong.' });
       if (!users) return res.status(404).json({ message: 'User not found.' });
 
       return res.status(200).json(users);
     });
 }
+
+// Language
+// .find({})
+// .populate(['questions'])
+// .exec((err, language) => {
+//   if (err) return res.status(500).json(err);
+//   if (!language) return res.status(404).json({ error: 'No language was found.' });
+//   return res.status(200).json(language);
+// });
 
 /*
  * UNPROTECTED
