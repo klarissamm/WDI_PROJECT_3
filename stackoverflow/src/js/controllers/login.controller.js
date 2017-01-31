@@ -7,6 +7,7 @@ function LoginCtrl(User, CurrentUserService) {
   const vm = this;
 
   vm.login = () => {
+    console.log('running');
     User.login(vm.user)
     .$promise
     .then(() => {
