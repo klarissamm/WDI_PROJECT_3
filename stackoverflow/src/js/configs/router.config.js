@@ -29,6 +29,12 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
     controller: 'UsersIndexCtrl',
     controllerAs: 'usersIndex'
   })
+  .state('languages', {
+    url: '/languages',
+    templateUrl: '/js/views/languages/index.html',
+    controller: 'LanguagesIndexCtrl',
+    controllerAs: 'languageIndex'
+  })
   .state('userShow', {
     url: '/user/:id',
     templateUrl: '/js/views/users/show.html',
