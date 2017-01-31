@@ -16,6 +16,11 @@ questionSchema.pre('save', function(done) {
   return this.model('Language').findByIdAndUpdate(this.language, { $addToSet: { questions: this._id }}, done);
 });
 
+// this should work. if not, ask alex for help
+questionSchema.pre('save', function(done) {
+  return this.model('User').findByIdAndUpdate(this.user, { $addToSet: { questions: this._id }}, done);
+});
+
 // Add to the owner
 
 module.exports = mongoose.model('Question', questionSchema);

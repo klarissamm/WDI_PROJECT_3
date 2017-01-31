@@ -9,3 +9,5 @@ function userFactory(API, $resource){
     'login': { method: 'POST', url: `${API}/login` }
   });
 }
+
+// adding for commit

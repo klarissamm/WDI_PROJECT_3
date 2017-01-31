@@ -15,7 +15,6 @@ const config = require('../config/config');
  */
 
 function authenticationsRegister(req, res){
-  console.log(req.body);
   User.create(req.body, (err, user) => {
     if (err) return res.status(500).json({ message: 'Something went wrong.' });
 
@@ -51,6 +50,7 @@ function assignUser(req, res, next){
 
   // Using the jwt.verify method, decode the payload
   jwt.verify(token, config.secret, (err, decoded) => {
+    console.log(err);
     if (err) return res.status(403).json({
       success: false,
       message: 'Access denied'

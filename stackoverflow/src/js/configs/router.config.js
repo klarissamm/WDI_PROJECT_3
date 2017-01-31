@@ -31,9 +31,27 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
   })
   .state('languages', {
     url: '/languages',
-    templateUrl: '/js/views/lenguages/index.html',
+    templateUrl: '/js/views/languages/index.html',
     controller: 'LanguagesIndexCtrl',
     controllerAs: 'languageIndex'
+  })
+  .state('userShow', {
+    url: '/user/:id',
+    templateUrl: '/js/views/users/show.html',
+    controller: 'UsersShowCtrl',
+    controllerAs: 'usersShow'
+  })
+  .state('questions', {
+    url: '/questions',
+    templateUrl: '/js/views/questions/index.html',
+    controller: 'QuestionsIndexCtrl',
+    controllerAs: 'questionsIndex'
+  })
+  .state('questionsNew', {
+    url: '/questions/new',
+    templateUrl: '/js/view/questions/new.html',
+    controller: 'QuestionsNewCtrl',
+    controllerAs: 'questionsNew'
   });
 
   $urlRouterProvider.otherwise('/');
