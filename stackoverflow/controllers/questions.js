@@ -27,8 +27,8 @@ function questionsShow(req, res){
  * POST /questions
  */
 function questionsCreate(req, res) {
-  const question = new Question(req.body.question);
-
+  const question = new Question(req.body);
+console.log(question)
   // Assign the question to the user who made the request
   question.owner = req.user._id;
   question.save((err, question) => {
@@ -50,7 +50,12 @@ function questionsCreate(req, res) {
     });
   });
 }
-
+// function moviesNew(req, res) {
+//  Languages.find({}, (err, languages) => {
+//    if (err) return res.render('movies/new', { error: err.message });
+//    return res.render('movies/new', { error: null, directors });
+//  });
+// }
 /*
  * PROTECTED
  * DELETE /questions/:id

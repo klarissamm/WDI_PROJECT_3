@@ -1,6 +1,6 @@
 angular
-  .module('ourApp')
-  .config(Router);
+.module('ourApp')
+.config(Router);
 
 Router.$inject = ['$stateProvider', '$locationProvider', '$urlRouterProvider'];
 function Router($stateProvider, $locationProvider, $urlRouterProvider){
@@ -41,11 +41,17 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
     controller: 'LanguageShowCtrl',
     controllerAs: 'languageShow'
   })
+  .state('userEdit', {
+    url: '/user/edit',
+    templateUrl: '/js/views/users/edit.html',
+    controller: 'UsersEditCtrl',
+    controllerAs: 'userEdit'
+  })
   .state('userShow', {
     url: '/user/:id',
     templateUrl: '/js/views/users/show.html',
-    controller: 'UsersShowCtrl',
-    controllerAs: 'usersShow'
+    controller: 'UserShowCtrl',
+    controllerAs: 'userShow'
   })
   .state('questions', {
     url: '/questions',
@@ -53,12 +59,27 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
     controller: 'QuestionsIndexCtrl',
     controllerAs: 'questionsIndex'
   })
-  .state('questionsNew', {
+  .state('questionsCreate', {
     url: '/questions/new',
-    templateUrl: '/js/view/questions/new.html',
-    controller: 'QuestionsNewCtrl',
-    controllerAs: 'questionsNew'
+    templateUrl: '/js/views/questions/new.html',
+    controller: 'QuestionsCreateCtrl',
+    controllerAs: 'questionsCreate'
+  })
+  .state('questionsShow', {
+    url: '/questions/:id',
+    templateUrl: '/js/views/questions/show.html',
+    controller: 'QuestionsShowCtrl',
+    controllerAs: 'QuestionsShow'
   });
+
+  // .state('profile', {
+  //   url: '/user/:id',
+  //   templateUrl: '/js/views/users/show.html',
+  //   controller: 'ProfileCtrl',
+  //   sp: {
+  //     authenticate: true
+  //   }
+
 
   $urlRouterProvider.otherwise('/');
 }

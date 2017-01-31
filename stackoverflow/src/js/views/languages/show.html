@@ -1,6 +1,17 @@
 <ul class="list-group">
-  <li class="list-group-item justify-content-between" ng-repeat="question in languageShow.languages">
-    {{lenguages.questions}}
+  <li class="list-group-item" ng-repeat="question in languageShow.language.questions">
+
+    {{ question.title}}, {{ question.description}}
+  </li>
+  </ul>
+  <h5 class="mb-1" ui-sref="questionsShow({id: question._id})">Click?</h5>
+
+
+
+
+<!-- <ul class="list-group">
+  <li class="list-group-item justify-content-between" ng-repeat="question in languageShow.languages.questions">
+    {{questions}}
     <span class="badge badge-default badge-pill"></span>
   </li>
   <li class="list-group-item justify-content-between">
@@ -11,4 +22,4 @@
     Morbi leo risus
     <span class="badge badge-default badge-pill">1</span>
   </li>
-</ul>
+</ul> -->

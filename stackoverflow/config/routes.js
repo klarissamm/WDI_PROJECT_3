@@ -22,7 +22,8 @@ router.route('/languages')
 router.route('/languages/:id')
   .get(languages.show);
 router.route('/users')
-  .get(users.index);
+  .get(users.index)
+  .put(users.update);
 router.route('/users/:id')
   .get(users.show);
 
