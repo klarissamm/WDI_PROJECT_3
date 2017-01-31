@@ -1,6 +1,6 @@
 <h2>New Question</h2>
 
-<form ng-submit="questions.usersCreate()">
+<form ng-submit="questionsCreate.questionsCreate()">
   <div class="form-group">
     <label for="title">Title</label>
     <input type="text" class="form-control" id="title" placeholder="Name" ng-model="questions.question.title">
@@ -14,5 +14,8 @@
   <div class="form-group">
     <dropdown placeholder="Language" list="languages" selected="language" property="language"></dropdown>
   </div>
+  <h2>car</h2>
+
+
   <input type="submit" class="btn btn-default" value="Add">
 </form>

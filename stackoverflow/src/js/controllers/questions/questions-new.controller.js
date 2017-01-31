@@ -1,9 +1,9 @@
 angular
   .module('ourApp')
-  .controller('QuestionsNewCtrl', QuestionsNewCtrl);
+  .controller('QuestionsCreateCtrl', QuestionsCreateCtrl);
 
-QuestionsNewCtrl.$inject = ['$http', 'API', '$state'];
-function QuestionsNewCtrl($http, API, $state){
+QuestionsCreateCtrl.$inject = ['$http', 'API', '$state'];
+function QuestionsCreateCtrl($http, API, $state){
   const vm = this;
 
   vm.questionsCreate = function questionsCreate(){

@@ -31,6 +31,9 @@
               <!-- <li ng-show="main.user">
                 <p class="navbar-text">Welcome, {{ main.user.name }}</p>
               </li> -->
+              <li ng-show="main.user">
+                <a ui-sref="questionsCreate">Post your question</a>
+              </li>
               <li ng-hide="main.user">
                 <a ui-sref="register">Register</a>
               </li>

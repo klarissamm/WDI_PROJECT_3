@@ -50,7 +50,12 @@ function questionsCreate(req, res) {
     });
   });
 }
-
+// function moviesNew(req, res) {
+//  Languages.find({}, (err, languages) => {
+//    if (err) return res.render('movies/new', { error: err.message });
+//    return res.render('movies/new', { error: null, directors });
+//  });
+// }
 /*
  * PROTECTED
  * DELETE /questions/:id

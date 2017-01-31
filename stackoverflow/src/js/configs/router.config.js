@@ -47,11 +47,11 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
     controller: 'QuestionsIndexCtrl',
     controllerAs: 'questionsIndex'
   })
-  .state('questionsNew', {
+  .state('questionsCreate', {
     url: '/questions/new',
-    templateUrl: '/js/view/questions/new.html',
-    controller: 'QuestionsNewCtrl',
-    controllerAs: 'questionsNew'
+    templateUrl: '/js/views/questions/new.html',
+    controller: 'QuestionsCreateCtrl',
+    controllerAs: 'questionsCreate'
   });
 
   $urlRouterProvider.otherwise('/');
