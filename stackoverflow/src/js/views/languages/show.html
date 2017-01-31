@@ -1,4 +1,18 @@
 <ul class="list-group">
+  <li class="list-group-item" ng-repeat="question in languageShow.language.questions">
+    {{ question.title}}, {{ question.description}}
+  </li>
+  <li class="list-group-item" ng-repeat="answers in languageShow.questions">
+    {{ question.answers}}
+  </li>
+  <li class="list-group-item" ng-repeat="question in languageShow.language.questions">
+    {{ question.answers}}
+  </li>
+</ul>
+
+
+
+<!-- <ul class="list-group">
   <li class="list-group-item justify-content-between" ng-repeat="question in languageShow.languages.questions">
     {{questions}}
     <span class="badge badge-default badge-pill"></span>
@@ -11,4 +25,4 @@
     Morbi leo risus
     <span class="badge badge-default badge-pill">1</span>
   </li>
-</ul>
+</ul> -->
