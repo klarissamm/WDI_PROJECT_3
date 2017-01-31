@@ -9,6 +9,7 @@ const userSchema = mongoose.Schema({
   passwordHash: {type: String, required: true},
   github: { type: String, trim: true },
   image: { type: String, trim: true },
+  language: { type: String, trim: true},
   bio: { type: String, trim: true },
   charity: {type: String, trim: true},
   role: {type: String, required: true, trim: true, enum: userTypes, default: 'user'},

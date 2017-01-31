@@ -20,8 +20,12 @@
                 <div class="modal-body">
                     <center>
                     <a><img src="{{ userShow.user.image }}" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
-                    <h3 class="media-heading">{{ userShow.user.name }} <small>Email: {{userShow.user.email}}</small></h3>
-                    <span><strong>Skills: </strong></span>
+                    <h3 class="media-heading">{{ userShow.user.name }} <small>Email: {{userShow.user.email}}</small>
+                    </h3>
+                    <h3><small>Github: {{userShow.user.github}}</small></h3>
+                    <h3><small>Language: {{userShow.user.language}}</small></h3>
+                    <!-- <h4>Programming Language/('s):  {{ userShow.user.languages }}</h4> -->
+                    <span><strong></strong></span>
                         <span class="label label-warning"></span>
                         <span class="label label-info"></span>
                         <span class="label label-info"></span>
@@ -29,7 +33,7 @@
                     </center>
                     <hr>
                     <center>
-                    <p class="text-left"><strong>Bio: {{ userShow.user.bio }}</strong><br></p>
+                    <p class="text-left"><strong>About: {{ userShow.user.bio }}</strong><br></p>
                     <br>
                     </center>
                 </div>
