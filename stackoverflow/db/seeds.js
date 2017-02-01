@@ -40,12 +40,12 @@ function dropCollections(done) {
 function createLanguages(done) {
   Language
     .create([
-      { name: 'JavaScript', icon: 'devicon-javascript-plain' },
-      { name: 'Ruby', icon: 'devicon-ruby-plain-wordmark'},
-      { name: 'C++', icon: 'devicon-cplusplus-plain-wordmark'},
-      { name: 'Grunt', icon: 'devicon-grunt-plain-wordmark'},
-      { name: 'Erlang', icon: 'devicon-erlang-plain-wordmark'},
-      { name: 'Go', icon: 'devicon-go-plain'}
+      { name: 'JavaScript', icon: 'devicon-javascript-plain colored' },
+      { name: 'Ruby', icon: 'devicon-ruby-plain-wordmark colored'},
+      { name: 'Python', icon: 'devicon-python-plain colored'},
+      { name: 'C++', icon: 'devicon-cplusplus-plain-wordmark colored'},
+      { name: 'Grunt', icon: 'devicon-grunt-plain-wordmark colored'},
+      { name: 'Erlang', icon: 'devicon-erlang-plain-wordmark colored'}
     ], (err, languages) => {
       if (err) return done(err);
       console.log(`${languages.length} Languages created!`);

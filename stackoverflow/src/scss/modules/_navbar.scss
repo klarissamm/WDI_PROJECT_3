@@ -14,10 +14,19 @@ header {
       line-height: 64px;
       height: 64px;
       padding: 4px 0 0 0;
-      &:hover, &:active {
-        color: $primary-color;
-      }
     }
+
+    .navbar-brand:hover {
+      color: $dark-primary-color;
+    }
+
+
+  .btn-primary:hover {
+   color: white;
+   background-color: $dark-primary-color;
+   border: 1px solid $dark-primary-color;
+
+  }
   }
 
   .navbar {
@@ -34,4 +43,11 @@ header {
       font-size: 1.5rem;
     }
   }
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: $dark-primary-color;
+}
+.navbar-default .navbar-nav > li > a:hover {
+  color: $primary-color;
 }
