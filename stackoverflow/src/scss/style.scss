@@ -8,14 +8,15 @@ body {
 nav.navbar.navbar-default {
   background: $secondary-color;
 
-a {
-  color: $primary-color;
-
-  .navbar-brand {
+  a {
     color: $primary-color;
-  }
-}
 
-img {
-  width: 100%;
+    .navbar-brand {
+      color: $primary-color;
+    }
+  }
+
+  img {
+    width: 100%;
+  }
 }
