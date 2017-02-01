@@ -4,10 +4,13 @@
     <center>
       <a data-toggle="modal" data-target="#myModal"><img alt="{{ userShow.user.name }}" src="{{ userShow.user.image }}" name="aboutme" width="140" height="140" class="img-circle"></a>
       <h3>{{ userShow.user.name }}</h3>
-      <h4>Email: {{userShow.user.email}}</h4>
-      <h4 class="media-heading"><small>Language:{{userShow.user.language}}</small></h4>
-      <h4 class="media-heading"><small>GitHub: {{userShow.user.github}}</small></h4>
-      <h4 class="media-heading"><small>About: {{userShow.user.bio}}</small></h4>
+      <h4 class="media-heading">GitHub: {{userShow.user.github}}</h4>
+      <h4 class="media-heading"><small>Email: {{userShow.user.email}}</small></h4>
+      <h4 class="media-heading"><small>Languages: {{userShow.user.language}}</small></h4>
+      <h4 class="media-heading"><small>About Me: {{userShow.user.about}}</small></h4>
+
+
+
 
       <button ng-if="userShow.isCurrentUser()" class="btn btn-primary" ui-sref="userEdit">Edit</button>
       <button ng-if="userShow.isCurrentUser()" class="btn btn-warning" ng-click="userShow.delete()">Delete</button>
