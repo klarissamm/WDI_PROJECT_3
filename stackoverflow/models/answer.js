@@ -7,8 +7,8 @@ const answerSchema = mongoose.Schema({
   question: { type: mongoose.Schema.ObjectId, ref: 'Question'}
 });
 
-answerSchema.pre('save', function(done) {
-  return this.model('Question').findByIdAndUpdate(this.question, { $addToSet: { answers: this._id }}, done);
-});
+// answerSchema.pre('save', function(done) {
+//   return this.model('Question').findByIdAndUpdate(this.question, { $addToSet: { answers: this._id }}, done);
+// });
 
 module.exports = mongoose.model('Answer', answerSchema);
