@@ -1,22 +1,8 @@
-$primary-color: #A3E7FC;
-$secondary-color: #042A2B;
+@import "variables";
+@import "structure";
+@import "buttons";
 
-body {
-  font-family: 'Baloo Paaji', cursive;
-}
+@import "modules/navbar";
 
-nav.navbar.navbar-default {
-  background: $secondary-color;
-
-  a {
-    color: $primary-color;
-
-    .navbar-brand {
-      color: $primary-color;
-    }
-  }
-
-  img {
-    width: 100%;
-  }
-}
+@import "partials/home";
+@import "partials/languages";

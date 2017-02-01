@@ -28,26 +28,13 @@ function questionsShow(req, res){
  */
 function questionsCreate(req, res) {
   const question = new Question(req.body);
-console.log(question)
+  console.log('here', question);
   // Assign the question to the user who made the request
   question.owner = req.user._id;
+  console.log(question);
   question.save((err, question) => {
     if (err) return res.status(500).json(err);
-
-    // Push the question into the user's array of questions
-    // Could do this in a pre-save hook
-    User.findById(req.user._id, (err, user) => {
-      if (err) return res.status(500).json({ message: 'Something went wrong.' });
-      if (!user) return res.status(404).json({ message: 'User not found.' });
-
-      // Push the question.id into the user's array of questions
-      user.questions.push(question.id);
-
-      user.save(err  => {
-        if (err) return res.status(500).json(err);
-        return res.status(201).json(question);
-      });
-    });
+    return res.status(200).json({success: true});
   });
 }
 // function moviesNew(req, res) {

@@ -1,55 +1,56 @@
 
 <div class="container">
-    <div class="span3 well">
-        <center>
-        <a data-toggle="modal" data-target="#myModal"><img alt="{{ userShow.user.name }}" src="{{ userShow.user.image }}" name="aboutme" width="140" height="140" class="img-circle"></a>
-        <h3>{{ userShow.user.name }}</h3>
-        <!-- <em>click my face for more</em> -->
-<!-- <h3 class="media-heading">{{ userShow.user.name }} -->
-<h4>Email: {{userShow.user.email}}</h4>
+  <div class="span3 well">
+    <center>
+      <a data-toggle="modal" data-target="#myModal"><img alt="{{ userShow.user.name }}" src="{{ userShow.user.image }}" name="aboutme" width="140" height="140" class="img-circle"></a>
+      <h3>{{ userShow.user.name }}</h3>
+      <h4>Email: {{userShow.user.email}}</h4>
+      <h4 class="media-heading"><small>Language:{{userShow.user.language}}</small></h4>
+      <h4 class="media-heading"><small>GitHub: {{userShow.user.github}}</small></h4>
+      <h4 class="media-heading"><small>About: {{userShow.user.bio}}</small></h4>
+
+      <button ng-if="userShow.isCurrentUser()" class="btn btn-primary" ui-sref="userEdit">Edit</button>
+      <button ng-if="userShow.isCurrentUser()" class="btn btn-warning" ng-click="userShow.delete()">Delete</button>
+
+      <!-- So users can not delete/edit other users -->
+    </center>
+  </div>
+
+  <div class="questionsOnProfile">
+    <h4>Questions:</h4>
+    <h6 class="mb-1" ng-repeat="question in userShow.user.questions">
+      <p ui-sref="questionsShow({id: question._id})">{{ question.title}} </p>
+    </h6>
+  </div>
+
+  <!-- If we want a modal display use below... -->
+  <!-- Modal -->
+  <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content">
+  <div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+  <h4 class="modal-title" id="myModalLabel">More About {{ userShow.user.name }}</h4>
+</div>
+<div class="modal-body">
+<center>
+<a><img src="{{ userShow.user.image }}" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
+<h3 class="media-heading">{{ userShow.user.name }} <small>Email: {{userShow.user.email}}</small></h3>
 <h4 class="media-heading"><small>Language:{{userShow.user.language}}</small></h4>
 <h4 class="media-heading"><small>GitHub: {{userShow.user.github}}</small></h4>
 <h4 class="media-heading"><small>Bio: {{userShow.user.bio}}</small></h4>
 
-<!--Some how need to dynamically populate user questions here -->
-<h4 class="media-heading"><small>Questions: {{userShow.user.questions}}</small></h4>
-
-<button ui-sref="usersIndex"type="button" class="btn btn-default" data-dismiss="modal">I've heard enough about {{userShow.user.name}}</button>
-
-<!-- So users can not delete/edit other users -->
-		</center>
-    </div>
-    <button ng-if="userShow.isCurrentUser()" class="btn btn-primary" ui-sref="userEdit">Edit</button>
-    <button ng-if="userShow.isCurrentUser()" class="btn btn-warning" ng-click="userShow.delete()">Delete</button>
-
-<!-- If we want a modal display use below... -->
-    <!-- Modal -->
-    <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title" id="myModalLabel">More About {{ userShow.user.name }}</h4>
-                    </div>
-                <div class="modal-body">
-                    <center>
-                    <a><img src="{{ userShow.user.image }}" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
-                    <h3 class="media-heading">{{ userShow.user.name }} <small>Email: {{userShow.user.email}}</small></h3>
-                    <h4 class="media-heading"><small>Language:{{userShow.user.language}}</small></h4>
-                    <h4 class="media-heading"><small>GitHub: {{userShow.user.github}}</small></h4>
-                    <h4 class="media-heading"><small>Bio: {{userShow.user.bio}}</small></h4>
-
-                    <hr>
-                    <center>
-                    <br>
-                    </center>
-                </div>
-                <div class="modal-footer">
-                    <center>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">I've heard enough about {{userShow.user.name}}</button>
-                    </center>
-                </div>
-            </div> -->
-        <!-- </div>
-    </div> -->
+<hr>
+<center>
+<br>
+</center>
+</div>
+<div class="modal-footer">
+<center>
+<button type="button" class="btn btn-default" data-dismiss="modal">I've heard enough about {{userShow.user.name}}</button>
+</center>
+</div>
+</div> -->
+<!-- </div>
+</div> -->
 </div>

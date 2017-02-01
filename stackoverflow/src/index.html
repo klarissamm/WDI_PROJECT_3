@@ -2,29 +2,15 @@
 <html ng-app="ourApp">
   <head>
     <meta charset="utf-8">
-    <title>Our App</title>
+    <title>CodeFund</title>
     <base href="/" />
-    <!-- <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../node_modules/bootstrap-markdown/css/bootstrap-markdown.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/github.min.css">
-    <link rel="stylesheet" href="../node_modules/angular-markdown-editor/styles/angular-markdown-editor.css">
-    <script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../node_modules/angular/angular.min.js"></script>
-    <script type="text/javascript" src="../node_modules/angular-sanitize/angular-sanitize.min.js"></script>
-    <script type="text/javascript" src="../node_modules/marked/lib/marked.js"></script>
-    <script type="text/javascript" src="../node_modules/angular-marked/dist/angular-marked.min.js"></script>
-    <script type="text/javascript" src="../node_modules/bootstrap-markdown/js/bootstrap-markdown.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/highlight.min.js"></script>
-    <script type="text/javascript" src="../node_modules/angular-highlightjs/src/angular-highlightjs.js"></script>
-    <script type="text/javascript" src="../node_modules/angular-markdown-editor/src/angular-markdown-editor.js"></script> -->
+    <link href="https://fonts.googleapis.com/css?family=Khula:400,800" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
 
     <!-- inject:js -->
     <!-- endinject -->
     <!-- inject:css -->
     <!-- endinject -->
-    <link href="https://fonts.googleapis.com/css?family=Baloo+Paaji|Bungee+Inline|Bungee+Shade|Carter+One|Josefin+Sans" rel="stylesheet">
   </head>
   <body ng-controller="MainCtrl as main">
     <header>
@@ -39,7 +25,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" ui-sref="home">Our App</a>
+            <a class="navbar-brand" ui-sref="home">CodeFund</a>
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
@@ -52,7 +38,7 @@
                 <a ui-sref="questionsCreate">Post your question</a>
               </li>
               <li ng-hide="main.user">
-                <a ui-sref="register">Register</a>
+                <a ui-sref="register"><span class="btn btn-primary">Register</span></a>
               </li>
               <li ng-hide="main.user">
                 <a ui-sref="login">Login</a>
@@ -71,6 +57,16 @@
         </div><!-- /.container-fluid -->
       </nav>
     </header>
-    <main class="container" ui-view></main>
+    <main ui-view></main>
+    <footer>
+      <ul>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Help</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+      CodeFund is a registered trademark of Team Undefined.</br>
+      Made with &hearts; at GA
+    </footer>
   </body>
 </html>
