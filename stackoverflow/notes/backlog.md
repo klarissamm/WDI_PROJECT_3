@@ -15,3 +15,9 @@ language show
 questions show
 
 questions by user -
+
+
+//We need to get the info /questions/:id and get the answers for that specific question
+
+-add a button to the question show page that alerts the user that you've submitted an answer to their question
+-
