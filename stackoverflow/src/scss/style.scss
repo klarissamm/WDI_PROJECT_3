@@ -15,9 +15,7 @@ a {
     color: $primary-color;
   }
 }
-}
 
-.homebackground {
-  background-image: url('../images/home_background.jpg');
-  background-size: cover;
+img {
+  width: 100%;
 }
