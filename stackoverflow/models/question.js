@@ -5,7 +5,7 @@ const questionSchema = mongoose.Schema({
   title: { type: String, trim: true, require: true },
   description: { type: String, trim: true, require: true },
   status: {type: String, required: true, trim: true, enum: questionStatuses, default: 'pending'},
-  // coins: {type: Number, required: true, trim: true},
+  coins: {type: Number, required: true, trim: true},
   language: { type: mongoose.Schema.ObjectId, ref: 'Language' },
   answers: [{ type: mongoose.Schema.ObjectId, ref: 'Answer' }],
   owner: { type: mongoose.Schema.ObjectId, ref: 'User'}
