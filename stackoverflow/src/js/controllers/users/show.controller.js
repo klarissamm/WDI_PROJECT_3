@@ -7,12 +7,10 @@ function UserShowCtrl(User, $stateParams, $state, CurrentUserService, Question){
   const vm = this;
 
   function getUser(){
-    console.log('i am running');
     User
       .get($stateParams)
       .$promise
       .then(response => {
-        console.log(response);
         vm.user = response;
       });
   }

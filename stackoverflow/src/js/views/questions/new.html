@@ -2,9 +2,10 @@
 
 <form ng-submit="questionsCreate.questionsCreate()">
   <div class ="form-group">
-    <label for="language">Langage</label>
-    <select class="form-control" ng-model="language" ng-options="language.name for language in questionsCreate.languages" ng-change="questionsCreate.assignLanguage(language._id)">
+    <label for="language">Language</label>
+    <select class="form-control" ng-model="questionsCreate.question.language">
        <option value="">Please select a language</option>
+       <option ng-repeat="language in questionsCreate.languages" value="{{language._id}}">{{language.name}}</option>
     </select>
   </div>
 
@@ -14,15 +15,10 @@
   </div>
 
   <div class="row">
-    <div class="col-md-6">
-      <h3>Editor</h3>
-      <div ta-toolbar="[['h1','h2','h3'],['bold','italics'],['pre']]" text-angular="text-angular" name="description" ng-model="questionsCreate.question.description"></div>
-    </div>
-    <div class="col-md-6">
-      <h3>Preview</h3>
-      <p ng-bind-html="questionsCreate.question.description"></p>
+    <div class="container">
+      <h3>Code Editor</h3>
+      <div ta-toolbar="[['bold','italics'],['pre'], ['insertImage']]" text-angular="text-angular" name="description" ng-model="questionsCreate.question.description"></div>
     </div>
   </div>
-
   <input type="submit" class="btn btn-primary pull-right" value="Add">
 </form>

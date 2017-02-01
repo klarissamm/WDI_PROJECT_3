@@ -1,9 +1,9 @@
 <ul class="list-group">
   <li class="list-group-item" ng-repeat="question in languageShow.language.questions">
-    <h2>{{ question.title}}</h2>
-    <h5 class="mb-1" ui-sref="questionsShow({id: question._id})">Click?</h5>
+    {{ question.title}}
+      <button type="button" class="btn btn-primary btn-lg round" ui-sref="questionsShow({id: question._id})">Answers</button>
   </li>
-  </ul>
+</ul>
 
 
 
