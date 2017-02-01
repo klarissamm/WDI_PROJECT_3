@@ -1,18 +1,11 @@
-.usercard {
-  padding: 10px;
-  text-align: center;
-  border: 1px solid black;
-  border-radius: 5px;
-  margin: 10px 0;
+.userCard {
+ text-align: center;
 }
 
-img.imageUsers {
-  height: 200px;
+img.card-img-top {
+  height: 250px;
   width: auto;
-  border-radius: 2px;
-}
-
-img.charityImage {
-  height: 100px;
-  width: auto;
+  border-radius:4px;
+  padding: 0px;
+  margin: 0px;
 }
