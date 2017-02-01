@@ -6,3 +6,13 @@ h1.register{
 textarea.form-control.ng-pristine.ng-untouched.ng-valid.ng-empty{
   border-top: 1px solid #3dc58b;
 }
+
+select.ng-pristine.ng-untouched.ng-valid.ng-empty{
+  border: 1px solid #bababa;
+  border-top: 1px solid #3dc58b;
+}
+
+button.btn.btn-primary:hover{
+  background: #039A59;
+  border: 1px solid #ffffff;
+}
