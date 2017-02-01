@@ -1,5 +1,5 @@
 <h1>Register</h1>
-<section class="container">
+<div class="container">
 <form ng-submit="register.register()">
   <div class="form-group">
     <input class="form-control" type="text" name="username" ng-model="register.user.name" placeholder="Name">
@@ -18,12 +18,13 @@
   </div>
 
   <div class="form-group">
-    <input class="form-control" type="about" name="about" ng-model="register.user.bio" placeholder="About">
+    <input class="form-control" type="text" name="language" ng-model="register.user.language" placeholder="Coding Language">
   </div>
 
   <div class="form-group">
-    <input class="form-control" type="text" name="language" ng-model="register.user.language" placeholder="Language">
+    <textarea class="form-control" type="text" name="about" ng-model="register.user.bio" placeholder="About"></textarea>
   </div>
+  
   <div class="form-group">
     <input class="form-control" type="password" name="password" ng-model="register.user.password" placeholder="Password">
   </div>
@@ -34,4 +35,4 @@
 
   <input class="btn btn-primary" type="submit" value="Submit" />
 </form>
-</section>
+</div>

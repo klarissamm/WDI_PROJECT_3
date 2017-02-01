@@ -1,0 +1,11 @@
+h1{
+  text-align: center;
+}
+
+input.form-control.ng-pristine.ng-untouched.ng-valid.ng-empty{
+  border: 1px solid $primary-color;
+}
+
+textarea.form-control.ng-pristine.ng-untouched.ng-valid.ng-empty{
+  border: 1px solid $primary-color;
+}
