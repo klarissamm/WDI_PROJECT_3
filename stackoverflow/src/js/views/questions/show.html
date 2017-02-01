@@ -9,7 +9,7 @@
   <div class="row">
     <div class="container">
       <h3>Code Editor</h3>
-      <div ta-toolbar="[['bold','italics'],['pre'], ['insertLink']  ]" text-angular="text-angular" name="description" ng-model="QuestionsShow.newAnswer.description"></div>
+      <div ta-toolbar="[['bold','italics'],['pre'], ['insertLink']]" text-angular="text-angular" name="description" ng-model="QuestionsShow.newAnswer.description"></div>
     </div>
   </div>
   <input type="submit" class="btn btn-primary pull-right" />
@@ -22,9 +22,9 @@
   <li ng-repeat="answer in QuestionsShow.question.answers">
       <div class="row">
         <div class="container border_answer_box">
-          <div text-angular="text-angular" name="description" ng-bind-html="answer.description"></div>
+          <div ng-class="{green: answer.chosen}" text-angular="text-angular" name="description" ng-bind-html="answer.description"></div>
         </div>
-        <button type="button" name="button" ng-if="QuestionsShow.currentUser()._id === QuestionsShow.question.owner._id">Better</button>
+        <button ng-click="QuestionsShow.selectBest(answer)" type="button" name="button" ng-if="!answer.chosen && QuestionsShow.getCurrentUser()._id === QuestionsShow.question.owner._id">Better</button>
       </div>
   </li>
 </ul>
