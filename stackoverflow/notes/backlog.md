@@ -21,3 +21,5 @@ questions by user -
 
 -add a button to the question show page that alerts the user that you've submitted an answer to their question
 -
+
+make questions page easier/clearer to get to?
