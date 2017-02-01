@@ -17,6 +17,7 @@ function UserShowCtrl(User, $stateParams, $state, CurrentUserService, Question, 
           method: 'GET',
           url: `https://api.justgiving.com/06beb149/v1/charity/search?charityId=${vm.user.charity}`
         }).then(response => {
+          console.log(response);
           vm.user.charity = response.data.charitySearchResults[0];
         });
       });
