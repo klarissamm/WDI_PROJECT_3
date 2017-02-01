@@ -8,14 +8,9 @@
 
 @import "partials/home";
 @import "partials/languages";
-@import "partials/usersShow";
 
 .border_answer_box{
   border: 1px solid green;
-}
-
-.green {
-  background-color: green;
 }
 
 @import "partials/register";
@@ -23,3 +18,4 @@
 @import "partials/login";
 @import "partials/logindropdown";
 @import "partials/questionshow";
+@import "userShow";

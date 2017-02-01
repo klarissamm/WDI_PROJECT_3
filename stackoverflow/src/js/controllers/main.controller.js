@@ -36,7 +36,7 @@ function MainCtrl($rootScope, CurrentUserService, $state, User){
     .then(() => {
       console.log('returned');
       CurrentUserService.getUser();
-      $state.go('usersIndex');
+      $state.go('languages');
     }, err => {
       console.log(err);
     });

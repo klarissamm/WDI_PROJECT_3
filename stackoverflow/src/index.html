@@ -9,9 +9,6 @@
     <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
     <style type="text/css">
         </style>
-
-
-
   <!-- inject:js -->
   <!-- endinject -->
   <!-- inject:css -->
@@ -51,7 +48,7 @@
                 <a ui-sref="usersIndex">Users</a>
               </li>
               <li ng-show="main.user">
-                <a ui-sref="languages">Languages</a>
+                <a ui-sref="languages">Questions</a>
               </li>
               <li ng-show="main.user">
                 <a ng-click="main.logout()">Logout</a>
@@ -72,9 +69,13 @@
         <input class="btn btn-primary pull-right" type="submit" value="Submit">
       </form>
     </div>
-    <main ui-view></main>
 
-    <footer class="footer">
+    <main class="page-wrap" ui-view></main>
+    <footer class="site-footer"></footer>
+  </body>
+
+    <!-- <footer class="footer">
+
       <ul>
         <li><a href="#">Blog</a></li>
         <li><a href="#">About</a></li>
@@ -84,7 +85,7 @@
 
       <p>CodeFund is a registered trademark of Team Undefined.<br>
       Made with &hearts; at GA</p>
-    </footer>
-  </body>
+    </footer> -->
+
 
 </html>

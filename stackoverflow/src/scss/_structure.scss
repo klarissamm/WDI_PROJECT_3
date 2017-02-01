@@ -1,5 +1,29 @@
 body {
   font-family: $logo-font;
+  height: 100%;
+}
+
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -142px;
+}
+
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+
+.site-footer, .page-wrap:after {
+  height: 142px;
+}
+.site-footer {
+  margin-top: 60px;
+  background: orange;
+}
+
+section {
+  min-height: 400px;
 }
 
 ::-webkit-scrollbar {
