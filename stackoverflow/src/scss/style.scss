@@ -1,13 +1,14 @@
 @import "variables";
 @import "structure";
 @import "buttons";
-@import "userPage";
+@import "userIndex";
 
 @import "modules/navbar";
 @import "modules/footer";
 
 @import "partials/home";
 @import "partials/languages";
+@import "partials/usersShow";
 
 .border_answer_box{
   border: 1px solid green;

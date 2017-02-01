@@ -30,10 +30,11 @@ function MainCtrl($rootScope, CurrentUserService, $state, User){
   };
 
   vm.login = () => {
-    console.log('running');
+    console.log(vm.userLogin);
     User.login(vm.userLogin)
     .$promise
     .then(() => {
+      console.log('returned');
       CurrentUserService.getUser();
       $state.go('usersIndex');
     }, err => {
