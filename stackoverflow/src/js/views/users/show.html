@@ -8,7 +8,9 @@
       <h4 class="media-heading"><small>Email: {{userShow.user.email}}</small></h4>
       <h4 class="media-heading"><small>Languages: {{userShow.user.language}}</small></h4>
       <h4 class="media-heading"><small>About Me: {{userShow.user.about}}</small></h4>
-
+      <h4 class="media-heading"><small>Charity: {{userShow.user.charity.charityDisplayName}}</small></h4>
+      <img class="charityImage" src="{{userShow.user.charity.logoUrl}}" alt="">
+      <p>{{userShow.user.charity.description}}</p>
       <button ng-if="userShow.isCurrentUser()" class="btn btn-primary" ui-sref="userEdit">Edit</button>
       <button ng-if="userShow.isCurrentUser()" class="btn btn-warning" ng-click="userShow.delete()">Delete</button>
 
