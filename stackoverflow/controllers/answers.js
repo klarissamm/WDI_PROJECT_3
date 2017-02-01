@@ -8,9 +8,9 @@ const Answer   = require('../models/answer');
 const Question = require('../models/question');
 
 /*
- * PROTECTED
- * POST /questions/:id/answers
- */
+* PROTECTED
+* POST /questions/:id/answers
+*/
 function answersCreate(req, res){
   const answer = new Answer(req.body.answer);
   answer.owner = req.user._id;
@@ -35,47 +35,47 @@ function answersCreate(req, res){
 }
 
 /*
- * PROTECTED
- * PUT /questions/:question_id/answers/:id
- * LATER...
- */
+* PROTECTED
+* PUT /questions/:question_id/answers/:id
+* LATER...
+*/
 
 function answersUpdate(req, res){
-  if(req.decoded){
-    Question.find({answers: {$in: req.params.id}}, (err, question) => {
-      if (err) return res.status(500).json({ message: 'Something went wrong.' });
-      if (!question) return res.status(404).json({ message: 'Question not found.' });
-      Answer.findById(req.params.id, (err, answer) => {
-        if (!answer) return res.status(304).json({ error: 'You already have this answer as favourite' });
-        if(question.status === 'PENDING'){
-          answer.betterAnswer = true;
-          question.status = 'ANSWERED';
-        }else if(question.status === 'ANSWERED' && answer.betterAnswer){
-          answer.betterAnswer = false;
-          question.status = 'PENDING';
-        }
-        question.save(err => {
-          if (err) return res.status(500).json(err);
-          answer.save(err => {
-            if (err) return res.status(500).json(err);
-            return res.status(201).json(answer);
-          });
+  Question.findById(req.params.question_id).populate('answers').exec((err, question) => {
+    if (err) return res.status(500).json({ message: 'Something went wrong.' + err });
+    if (!question) return res.status(404).json({ message: 'Question not found.' });
+    Answer.update({question: req.params.question_id}, {chosen: false}, {multi: true},
+      (err, answer) => {
+        if (err) console.log(err);
+        console.log('updated ' + answer.title);
+      }
+    );
+    Answer.findById(req.params.id, (err, answer) => {
+      if (!answer) return res.status(304).json({ error: 'You already have this answer as favourite' });
+      question.status = 'answered';
+      answer.chosen = !answer.chosen;
+      Question.findByIdAndUpdate(req.params.question_id, question, {new: true}, (err, newquestion) => {
+        if (err) return res.status(500).json({ message: 'Something went wrong.' });
+        if (!newquestion) return res.status(404).json({ message: 'Question not found.' });
+        Answer.findByIdAndUpdate(req.params.id, answer, {new: true}, (err, newanswer) => {
+          if (err) return res.status(500).json({ message: 'Something went wrong.' });
+          if (!newanswer) return res.status(404).json({ message: 'Answer not found.' });
+          return res.status(201).json({newanswer, newquestion});
         });
       });
     });
-  }else{
-    return res.status(403).json({ error: 'Access Denied' });
-  }
+  });
 }
 
 
 
 
+
 /*
- * PROTECTED
- * DELETE /questions/:question_id/answers/:id
- * LATER...
- */
+* PROTECTED
+* DELETE /questions/:question_id/answers/:id
+* LATER...
+*/
 function answersDelete(req, res){
   if (req.user.role !== 'admin') {
     return res.status(401).json({

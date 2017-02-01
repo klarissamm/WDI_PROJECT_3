@@ -24,9 +24,10 @@
   <li class="question-show" ng-repeat="answer in QuestionsShow.question.answers">
       <div class="row">
         <div class="container border_answer_box">
-          <div text-angular="text-angular" name="description" ng-bind-html="answer.description"></div>
+          <div ng-class="{green: answer.chosen}" text-angular="text-angular" name="description" ng-bind-html="answer.description"></div>
         </div>
-        <!-- <button type="button" name="button" ng-if="QuestionsShow.currentUser()._id === QuestionsShow.question.owner._id">Better</button> -->
+        <button ng-click="QuestionsShow.selectBest(answer)" type="button" name="button" ng-if="!answer.chosen && QuestionsShow.getCurrentUser()._id === QuestionsShow.question.owner._id">Better</button>
+
       </div>
   </li>
 </ul>
