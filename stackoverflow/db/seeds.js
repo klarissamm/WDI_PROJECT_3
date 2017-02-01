@@ -81,6 +81,7 @@ function createQuestion(user, done) {
           title: 'How can I disable .onclick for element\'s children?',
           description: 'I cannot mark a checkbox option as selected or deselect it. How can I make it available?',
           status: 'answered',
+          coins: '5',
           owner: user._id,
           language: language._id
         }, (err, question) => {
