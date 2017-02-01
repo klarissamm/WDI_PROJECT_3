@@ -1,8 +1,10 @@
 @import "variables";
 @import "structure";
 @import "buttons";
+@import "userPage";
 
 @import "modules/navbar";
+@import "modules/footer";
 
 @import "partials/home";
 @import "partials/languages";
@@ -10,3 +12,8 @@
 .border_answer_box{
   border: 1px solid green;
 }
+
+@import "partials/register";
+
+@import "partials/login";
+@import "partials/logindropdown";

@@ -2,8 +2,8 @@ angular
   .module('ourApp')
   .controller('UserShowCtrl', UserShowCtrl);
 
-UserShowCtrl.$inject = ['User', '$stateParams', '$state', 'CurrentUserService', 'Question'];
-function UserShowCtrl(User, $stateParams, $state, CurrentUserService, Question){
+UserShowCtrl.$inject = ['User', '$stateParams', '$state', 'CurrentUserService', 'Question', '$http'];
+function UserShowCtrl(User, $stateParams, $state, CurrentUserService, Question, $http){
   const vm = this;
 
   function getUser(){
@@ -12,6 +12,13 @@ function UserShowCtrl(User, $stateParams, $state, CurrentUserService, Question){
       .$promise
       .then(response => {
         vm.user = response;
+        console.log(vm.user.charity);
+        $http({
+          method: 'GET',
+          url: `https://api.justgiving.com/06beb149/v1/charity/search?charityId=${vm.user.charity}`
+        }).then(response => {
+          vm.user.charity = response.data.charitySearchResults[0];
+        });
       });
   }
   getUser();
