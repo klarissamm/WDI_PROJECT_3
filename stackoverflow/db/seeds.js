@@ -40,12 +40,12 @@ function dropCollections(done) {
 function createLanguages(done) {
   Language
     .create([
-      { name: 'JavaScript' },
-      { name: 'Ruby'},
-      { name: 'C++'},
-      { name: 'Elixir'},
-      { name: 'Erlang'},
-      { name: 'Go'}
+      { name: 'JavaScript', icon: 'devicon-javascript-plain colored' },
+      { name: 'Ruby', icon: 'devicon-ruby-plain-wordmark colored'},
+      { name: 'Python', icon: 'devicon-python-plain colored'},
+      { name: 'C++', icon: 'devicon-cplusplus-plain-wordmark colored'},
+      { name: 'Grunt', icon: 'devicon-grunt-plain-wordmark colored'},
+      { name: 'Erlang', icon: 'devicon-erlang-plain-wordmark colored'}
     ], (err, languages) => {
       if (err) return done(err);
       console.log(`${languages.length} Languages created!`);
@@ -61,9 +61,10 @@ function createAskingUser(languages, done) {
       password: 'password',
       passwordConfirmation: 'password',
       github: 'gigi_loves_coding',
-      image: 'gigi.png',
-      bio: 'I have been a web developer for 1 year working for the   government',
-      charity: ''
+      image: 'http://fillmurray.com/200/300',
+      about: 'I have been a web developer for 1 year working for the government',
+      charity: '',
+      language: 'JavaScript'
     }, (err, user) => {
       if (err) return done(err);
       console.log(`${user.name} was created`);
@@ -98,9 +99,10 @@ function createAnsweringUser(question, done) {
       password: 'password',
       passwordConfirmation: 'password',
       github: 'gigi2_loves_coding',
-      image: 'gigi2.png',
-      bio: 'I have been a web developer for 1 year working for the   government',
-      charity: ''
+      image: 'http://fillmurray.com/g/200/300',
+      about: 'I have been a web developer for 1 year working for the   government',
+      charity: '',
+      language: 'JavaScript, Ruby, Go'
     }, (err, user) => {
       if (err) return done(err);
       console.log(`${user.name} was created`);

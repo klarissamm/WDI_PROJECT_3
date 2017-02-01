@@ -1,27 +1,10 @@
-$primary-color: #A3E7FC;
-$secondary-color: #042A2B;
+@import "variables";
+@import "structure";
+@import "buttons";
+@import "userPage";
 
-body {
-  font-family: 'Baloo Paaji', cursive;
-}
+@import "modules/navbar";
+@import "modules/footer";
 
-nav.navbar.navbar-default {
-  background: $secondary-color;
-
-  a {
-    color: $primary-color;
-
-    .navbar-brand {
-      color: $primary-color;
-    }
-  }
-
-  img {
-    width: 100%;
-  }
-}
-
-.questionsOnProfile {
-  text-align: center;
-  
-}
+@import "partials/home";
+@import "partials/languages";
