@@ -40,6 +40,8 @@ router.route('/questions')
 router.route('/questions/:id')
   .get(authentications.assignUser, questions.show)
   .delete(authentications.assignUser, questions.delete);
+router.route('/answers')
+  .post(authentications.assignUser, answers.create);
 router.route('/questions/:id/answers')
   .post(authentications.assignUser, answers.create);
 router.route('/questions/:question_id/answers/:id')

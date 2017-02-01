@@ -13,6 +13,7 @@ const userSchema = mongoose.Schema({
   bio: { type: String, trim: true },
   charity: {type: String, trim: true},
   role: {type: String, required: true, trim: true, enum: userTypes, default: 'user'},
+  language: {type: String, trim: true},
   questions: [{ type: mongoose.Schema.ObjectId, ref: 'Question' }]
 });
 
