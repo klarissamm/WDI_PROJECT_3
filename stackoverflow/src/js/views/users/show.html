@@ -9,23 +9,36 @@
       <h4 class="media-heading"><small>Languages: {{userShow.user.language}}</small></h4>
       <h4 class="media-heading"><small>About Me: {{userShow.user.about}}</small></h4>
       <h4 class="media-heading"><small>Charity: {{userShow.user.charity.charityDisplayName}}</small></h4>
-      <img class="charityImage" src="{{userShow.user.charity.logoUrl}}" alt="">
-      <p>{{userShow.user.charity.description}}</p>
 
-
-
-      <button ng-if="userShow.isCurrentUser()" class="btn btn-primary" ui-sref="userEdit">Edit</button>
-      <button ng-if="userShow.isCurrentUser()" class="btn btn-warning" ng-click="userShow.delete()">Delete</button>
-
-      <!-- So users can not delete/edit other users -->
+      <center>
+        <button ng-if="userShow.isCurrentUser()" class="btn btn-primary" ui-sref="userEdit">Edit</button>
+        <button ng-if="userShow.isCurrentUser()" class="btn btn-warning" ng-click="userShow.delete()">Delete</button>
+      </center>
+      
     </center>
   </div>
 
-  <div class="questionsOnProfile">
-    <h4>Questions:</h4>
-    <h6 class="mb-1" ng-repeat="question in userShow.user.questions">
-      <p class="questionsOnProfile ui-sref="questionsShow({id: question._id})">{{ question.title}} </p>
-    </h6>
+  <div class="span3 well">
+    <center>
+      <img class="charityImage" src="{{userShow.user.charity.logoUrl}}" alt="">
+      <p>{{userShow.user.charity.description}}</p>
+    </center>
   </div>
+
+
+
+
+  <!-- So users can not delete/edit other users -->
+
+
+  <div class="span3 well">
+    <div class="questionsOnProfile">
+      <h4>Questions:</h4>
+      <h6 class="mb-1" ng-repeat="question in userShow.user.questions">
+        <p class="questionsOnProfile ui-sref="questionsShow({id: question._id})">{{ question.title}} </p>
+      </h6>
+    </div>
+  </div>
+
 
 </div>
