@@ -28,10 +28,8 @@ function questionsShow(req, res){
  */
 function questionsCreate(req, res) {
   const question = new Question(req.body);
-  console.log('here', question);
   // Assign the question to the user who made the request
   question.owner = req.user._id;
-  console.log(question);
   question.save((err, question) => {
     if (err) return res.status(500).json(err);
     return res.status(200).json({success: true});
