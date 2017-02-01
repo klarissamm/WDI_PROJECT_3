@@ -50,7 +50,7 @@ function assignUser(req, res, next){
 
   // Using the jwt.verify method, decode the payload
   jwt.verify(token, config.secret, (err, decoded) => {
-    console.log(err);
+    if (err) console.log(err);
     if (err) return res.status(403).json({
       success: false,
       message: 'Access denied'

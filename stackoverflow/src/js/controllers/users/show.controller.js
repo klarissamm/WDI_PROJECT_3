@@ -2,12 +2,23 @@ angular
   .module('ourApp')
   .controller('UserShowCtrl', UserShowCtrl);
 
-UserShowCtrl.$inject = ['User', '$stateParams', '$state', 'CurrentUserService'];
-function UserShowCtrl(User, $stateParams, $state, CurrentUserService){
+UserShowCtrl.$inject = ['User', '$stateParams', '$state', 'CurrentUserService', 'Question'];
+function UserShowCtrl(User, $stateParams, $state, CurrentUserService, Question){
   const vm = this;
-  vm.user = User.get($stateParams);
-  console.log(vm.user);
-  console.log($stateParams);
+
+  function getUser(){
+    console.log('i am running');
+    User
+      .get($stateParams)
+      .$promise
+      .then(response => {
+        console.log(response);
+        vm.user = response;
+      });
+  }
+  getUser();
+
+
   vm.delete = function(){
     User
     .delete($stateParams)
