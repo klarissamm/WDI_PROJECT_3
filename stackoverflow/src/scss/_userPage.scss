@@ -1,9 +1,13 @@
-.col-md-4 {
-  padding: 10px
-  border-radius: 1px solid black
+.usercard {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 10px 0;
 }
 
 img.imageUsers {
-  height: 100px
-  width:100px
+  height: 200px;
+  width: auto;
+  border-radius: 2px;
 }

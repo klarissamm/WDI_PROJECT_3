@@ -61,9 +61,10 @@ function createAskingUser(languages, done) {
       password: 'password',
       passwordConfirmation: 'password',
       github: 'gigi_loves_coding',
-      image: 'gigi.png',
-      bio: 'I have been a web developer for 1 year working for the   government',
-      charity: ''
+      image: 'http://fillmurray.com/200/300',
+      about: 'I have been a web developer for 1 year working for the government',
+      charity: '',
+      language: 'JavaScript'
     }, (err, user) => {
       if (err) return done(err);
       console.log(`${user.name} was created`);
@@ -98,9 +99,10 @@ function createAnsweringUser(question, done) {
       password: 'password',
       passwordConfirmation: 'password',
       github: 'gigi2_loves_coding',
-      image: 'gigi2.png',
-      bio: 'I have been a web developer for 1 year working for the   government',
-      charity: ''
+      image: 'http://fillmurray.com/g/200/300',
+      about: 'I have been a web developer for 1 year working for the   government',
+      charity: '',
+      language: 'JavaScript, Ruby, Go'
     }, (err, user) => {
       if (err) return done(err);
       console.log(`${user.name} was created`);
