@@ -22,7 +22,7 @@
   </div>
 
   <div class="form-group">
-    <textarea class="form-control" type="text" name="about" ng-model="register.user.bio" placeholder="About"></textarea>
+    <textarea class="form-control" type="text" name="about" ng-model="register.user.about" placeholder="About me"></textarea>
   </div>
   <div ng-hide="register.charitiesList" class="charityselector form-group">
     <input placeholder="Search for charities" ng-model="register.charitySearch" type="search" name="charitysearch">
@@ -34,9 +34,9 @@
     </select>
     <button ng-click="register.restartSearch()" type="button" name="button">Search again</button><br>
   </div>
-  <div class="form-group">
+  <!-- <div class="form-group">
     <input class="form-control" type="text" name="aboutMe" ng-model="register.user.about" placeholder="About Me">
-  </div>
+  </div> -->
   <div class="form-group">
     <input class="form-control" type="password" name="password" ng-model="register.user.password" placeholder="Password">
   </div>
