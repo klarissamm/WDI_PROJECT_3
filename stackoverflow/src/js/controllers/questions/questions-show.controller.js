@@ -15,7 +15,6 @@ function QuestionsShowCtrl(Question, $stateParams, Answer, CurrentUserService){
     return CurrentUserService.currentUser;
   };
 
-  vm.getCurrentUser();
 
   vm.submitAnswer = function(){
     Answer

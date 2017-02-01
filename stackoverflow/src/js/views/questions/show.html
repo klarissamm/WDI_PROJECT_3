@@ -1,15 +1,16 @@
-<h1>{{QuestionsShow.question.title}}</h1>
-<h5>{{QuestionsShow.question.owner.name}}</h5>
-<p>{{QuestionsShow.question.description}}</p>
-<p>{{QuestionsShow.question.coins}}</p>
+<section class="container">
+<h2>{{QuestionsShow.question.title}}</h2>
+<label>{{QuestionsShow.question.owner.name}}</label>
+<!-- <p>{{QuestionsShow.question.description}}</p> -->
+<p>Earn £{{QuestionsShow.question.coins}} for the charity of your choice.</p>
 
 <p ng-bind-html="QuestionsShow.question.description"></p>
 
-<h2>Post Answer</h2>
+<h3>Post Your Answer</h3>
 <form ng-submit="QuestionsShow.submitAnswer()" class="clearfix">
   <div class="row">
     <div class="container">
-      <h3>Code Editor</h3>
+      <h4>Code Editor</h4>
       <div ta-toolbar="[['bold','italics'],['pre'], ['insertLink']  ]" text-angular="text-angular" name="description" ng-model="QuestionsShow.newAnswer.description"></div>
     </div>
   </div>
@@ -25,7 +26,8 @@
         <div class="container border_answer_box">
           <div text-angular="text-angular" name="description" ng-bind-html="answer.description"></div>
         </div>
-        <button type="button" name="button" ng-if="QuestionsShow.currentUser()._id === QuestionsShow.question.owner._id">Better</button>
+        <!-- <button type="button" name="button" ng-if="QuestionsShow.currentUser()._id === QuestionsShow.question.owner._id">Better</button> -->
       </div>
   </li>
 </ul>
+</section>
