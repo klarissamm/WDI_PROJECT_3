@@ -9,3 +9,23 @@
 @import "partials/register";
 
 @import "partials/login";
+
+
+.loginDropdown {
+  display: none;
+  &.showing {
+    display: block;
+    background: rgba(40,155,120, 1);
+    border: 1px solid rgba(0,0,0,0.7);
+    position: absolute;
+    z-index: 10;
+    right: 60px;
+    padding: 3px;
+    padding-right: 32px;
+    width: 300px;
+    input {
+      padding: 6px;
+      margin: 10px 15px;
+    }
+  }
+}

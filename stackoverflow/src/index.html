@@ -39,7 +39,7 @@
                 <a ui-sref="register"><span class="btn btn-primary">Register</span></a>
               </li>
               <li ng-hide="main.user">
-                <a ui-sref="login">Login</a>
+                <a ng-click="main.toggleLogin()">Login</a>
               </li>
               <li ng-show="main.user">
                 <a ui-sref="usersIndex">Users</a>
@@ -55,6 +55,17 @@
         </div><!-- /.container-fluid -->
       </nav>
     </header>
+    <div id="logdrop" class="loginDropdown">
+      <form ng-submit="main.login()">
+        <div>
+          <input class="form-control" type="email" name="email" ng-model="main.userLogin.email" placeholder="Email">
+        </div>
+        <div>
+          <input class="form-control" type="password" name="password" ng-model="main.userLogin.password" placeholder="Password">
+        </div>
+        <input class="btn btn-primary pull-right" type="submit" value="Submit">
+      </form>
+    </div>
     <main ui-view></main>
     <footer>
       <ul>

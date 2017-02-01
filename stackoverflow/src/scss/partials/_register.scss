@@ -1,11 +1,12 @@
-h1{
+h1.register{
   text-align: center;
+  color: #333333;
 }
 
 input.form-control.ng-pristine.ng-untouched.ng-valid.ng-empty{
-  border: 1px solid $primary-color;
+  border: 1px solid $border;
 }
 
 textarea.form-control.ng-pristine.ng-untouched.ng-valid.ng-empty{
-  border: 1px solid $primary-color;
+  border: 1px solid $border;
 }
