@@ -20,13 +20,20 @@
     "angular-resource": "^1.5.9",
     "angular-jwt": "^0.1.9",
     "angular-bootstrap": "^2.5.0",
-    "bootstrap": "^3.3.7"
+    "bootstrap": "^3.3.7",
+    "textAngular": "^1.5.16"
   },
   "overrides": {
     "bootstrap": {
       "main": [
         "dist/css/bootstrap.css",
         "dist/js/bootstrap.js",
+        "fonts/*"
+      ]
+    },
+    "font-awesome": {
+      "main": [
+        "css/font-awesome.css",
         "fonts/*"
       ]
     }
