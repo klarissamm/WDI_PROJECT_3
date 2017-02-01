@@ -1,25 +1,6 @@
 <ul class="list-group">
-  <li class="list-group-item" ng-repeat="question in languageShow.language.questions">
+  <li class="language-show list-group-item" ng-repeat="question in languageShow.language.questions">
     {{ question.title}}
       <button type="button" class="btn btn-primary btn-lg round" ui-sref="questionsShow({id: question._id})">Answers</button>
   </li>
 </ul>
-
-
-
-
-
-<!-- <ul class="list-group">
-  <li class="list-group-item justify-content-between" ng-repeat="question in languageShow.languages.questions">
-    {{questions}}
-    <span class="badge badge-default badge-pill"></span>
-  </li>
-  <li class="list-group-item justify-content-between">
-    Dapibus ac facilisis in
-    <span class="badge badge-default badge-pill">2</span>
-  </li>
-  <li class="list-group-item justify-content-between">
-    Morbi leo risus
-    <span class="badge badge-default badge-pill">1</span>
-  </li>
-</ul> -->

@@ -1,3 +1,4 @@
+<section class="container">
 <h2>New Question</h2>
 
 <form ng-submit="questionsCreate.questionsCreate()">
@@ -14,6 +15,11 @@
     <input type="text" class="form-control" id="title" placeholder="Name" ng-model="questionsCreate.question.title">
   </div>
 
+  <div class="form-group">
+    <label for="coins">Reward offered</label>
+    <input type="number" min="1" step="1" class="form-control" id="coins" placeholder="£" ng-model="questionsCreate.question.coins">
+  </div>
+
   <div class="row">
     <div class="container">
       <h3>Code Editor</h3>
@@ -22,3 +28,4 @@
   </div>
   <input type="submit" class="btn btn-primary pull-right" value="Add">
 </form>
+</section>

@@ -3,10 +3,22 @@
   color: $white;
   text-align: center;
   padding: 6rem;
+
+  .headline2 {
+    font-size: 4rem;
+  }
 }
 
-ul.howItWorks {
-  display: inline-block;
-  float: left;
-  list-style-type: none;
+
+.col-md-4 {
+  border-radius: 50%;
+  background-color: $primary-color;
+  width: 33%;
+  height: 250px;
+
+  li {
+    list-style-type: none;
+    text-align: center;
+    vertical-align: middle;
+  }
 }
