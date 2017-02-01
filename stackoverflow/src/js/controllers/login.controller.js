@@ -11,7 +11,7 @@ function LoginCtrl(User, CurrentUserService, $state) {
     .$promise
     .then(() => {
       CurrentUserService.getUser();
-      $state.go('usersIndex');
+      $state.go('languages');
     }, err => {
       console.log(err);
     });
