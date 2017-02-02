@@ -217,7 +217,7 @@ function createQuestions(done) {
       }
     },
     {
-      askingEmail: 'aleksander@gmail.com',
+      askingEmail: 'aleks@gmail.com',
       language: 'JavaScript',
       question: {
         title: 'How can I make an ajax call to the active directory and pull thumbnail photos using post?',
@@ -271,7 +271,7 @@ function createQuestions(done) {
       }
     },
     {
-      askingEmail: 'aleksander@gmail.com',
+      askingEmail: 'aleks@gmail.com',
       language: 'Ruby',
       question: {
         title: 'What does map(&:name) mean in Ruby?',
@@ -325,7 +325,7 @@ function createQuestions(done) {
       }
     },
     {
-      askingEmail: 'aleksander@gmail.com',
+      askingEmail: 'aleks@gmail.com',
       language: 'Python',
       question: {
         title: 'What does the “yield” keyword do?',
@@ -382,7 +382,7 @@ function createAnswers(done) {
     },
     {
       questionTitle: 'How can I disable .onclick for element\'s children?',
-      answeringEmail: 'aleksander@gmail.com',
+      answeringEmail: 'aleks@gmail.com',
       answer: {
         description: 'There are so many ways of doing that I will message you and let you know exactly how to do it.'
       }
