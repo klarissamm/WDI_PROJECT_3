@@ -1,6 +1,6 @@
 <section class="container">
 <h2>{{QuestionsShow.question.title}}</h2>
-<label>{{QuestionsShow.question.owner.name}}</label>
+<p class="questionsOnProfile" ui-sref="userShow({id: QuestionsShow.question.owner._id})">{{QuestionsShow.question.owner.name}}</p>
 <p>Earn £{{QuestionsShow.question.coins}} for the charity of your choice.</p>
 
 <p ng-bind-html="QuestionsShow.question.description"></p>
@@ -33,7 +33,7 @@
 
 <div class="iquestion-inner_border" ng-repeat="answer in QuestionsShow.question.answers">
     <div class="iquestion-inner">
-        <div class="iquestion-icon" ng-click="QuestionsShow.selectBest(answer, $event)">
+        <div class="iquestion-icon" ng-click="QuestionsShow.selectBest(answer, $event)" ng-if="QuestionsShow.getCurrentUser()._id === QuestionsShow.question.owner._id">
           <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
         </div>
         <div class="iquestion-info">
