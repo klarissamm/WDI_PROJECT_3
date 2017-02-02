@@ -75,21 +75,109 @@ function createUsers(done) {
         password: 'password',
         passwordConfirmation: 'password',
         github: 'gigi_loves_coding',
-        image: 'http://fillmurray.com/200/300',
-        about: 'I have been a web developer for 1 year working for the government',
-        charity: '',
+        image: 'http://thumbnails109.imagebam.com/39439/e3307f394387297.jpg',
+        about: 'I have been a junior developer for 1 year, working tirelessly to improve female healthcare from within the government',
+        charity: '300',
         language: 'JavaScript'
       },
       {
-        name: 'Gigi2',
-        email: 'gigi2@gmail.com',
+        name: 'Emily',
+        email: 'emily@gmail.com',
         password: 'password',
         passwordConfirmation: 'password',
-        github: 'gigi2_loves_coding',
-        image: 'http://fillmurray.com/g/200/300',
-        about: 'I have been a web developer for 1 year working for the   government',
-        charity: '',
-        language: 'JavaScript, Ruby, Go'
+        github: 'emily_coder',
+        image: 'http://www.tealeshapcott.com/teale/wp-content/uploads/2009/07/teale-shapcott-profile.jpg',
+        about: 'I am 25 years old, and recently took up web development as a hobbie in my spare time. I particualrly like to experiment with front-end frameworks.',
+        charity: '190345',
+        language: 'PHP'
+      },
+      {
+        name: 'Huddy',
+        email: 'huddy@gmail.com',
+        password: 'password',
+        passwordConfirmation: 'password',
+        github: 'huddy_chenobi',
+        image: 'http://staffordmotorspeedway.com/wp-content/uploads/RICARDED-PROFILE.jpg',
+        about: 'I am the best developer ever to have lived and love kicking it back with some code and some chicas.',
+        charity: '185383',
+        language: 'Grunt'
+      },
+      {
+        name: 'Aleksander',
+        email: 'aleks@gmail.com',
+        password: 'password',
+        passwordConfirmation: 'password',
+        github: 'Aleksander_boom',
+        image: 'https://versetracker.com/sites/default/files/styles/rapper_profile/public/rapper-pictures/t/tantrum.jpg?itok=-J8QUXxF',
+        about: 'I am a Polish American rapper who codes for fun at the weekends. My favourtie coding creations are Whack-A-Trump and the stolen art map game.',
+        charity: '2261',
+        language: 'Python, Ruby, Go'
+      },
+      {
+        name: 'Jamelia',
+        email: 'jamelia@gmail.com',
+        password: 'password',
+        passwordConfirmation: 'password',
+        github: 'jamelia_of_stokenewington',
+        image: 'http://mariterada.com/wp-content/uploads/2013/01/profile.jpg',
+        about: 'I live in Stoke Newington and work as a junior developer for an agency that supports charity organisations. On Wednesdays I wear pink. I really like experimenting with front-end javaScript frameworks.',
+        charity: '21369',
+        language: 'Angular, React'
+      },
+      {
+        name: 'Ismae',
+        email: 'ismae@gmail.com',
+        password: 'password',
+        passwordConfirmation: 'password',
+        github: 'ismae_code_queen',
+        image: 'http://www.elle.pl/gfx/00/05/80/bd/srcImage-0j93hfx_jpg/thumb_900x800_10.jpg/__/mloda-polska-moda-oczami-top-modelek-marta-dyks-starosz-fot-imaxtree.jpg',
+        about: 'I am a Spanish web developer living in London. I like energy drinks like Red Bull and coding at the weekends, especially on Sunday nights.',
+        charity: '21369',
+        language: 'Javascript, NodeJs'
+      },
+      {
+        name: 'Klarence',
+        email: 'klarence@gmail.com',
+        password: 'password',
+        passwordConfirmation: 'password',
+        github: 'Klarence_is_cool',
+        image: 'http://www.hazlewoods.co.uk/uploads/DirectorImages/Nigel_Utting_Hazlewoods_Director_Profile.jpg',
+        about: 'I am from Germany and likes sausages, beef burgers and onions. I have been known to code well into the early hours along with sinking pints and watching football',
+        charity: '188406',
+        language: 'Ruby, Mongodb'
+      },
+      {
+        name: 'Peter',
+        email: 'peter@gmail.com',
+        password: 'password',
+        passwordConfirmation: 'password',
+        github: 'Peter_web',
+        image: 'http://www.dzieyk.net/images/SAD4aL.jpg',
+        about: 'I own a restaurant and learnt to code in order to build the website. Sometimes I get a bit stuck on problems, especially the more complicated problem-solving aspects.',
+        charity: '248417',
+        language: 'C, HTML5'
+      },
+      {
+        name: 'Betty',
+        email: 'betty@gmail.com',
+        password: 'password',
+        passwordConfirmation: 'password',
+        github: 'Betty_boo',
+        image: 'http://www.trainingforvas.com/wp-content/uploads/2012/07/IMG_2258-1-200x300.jpg',
+        about: 'I work as a software engineer at MunchiesInc and enjoy all things code. I enjoy teaching others and helping people with their problems. At the weekend, I surf and build rafts in Cornwall.',
+        charity: '249590',
+        language: 'Ruby, Mongodb'
+      },
+      {
+        name: 'Laura',
+        email: 'laura@gmail.com',
+        password: 'password',
+        passwordConfirmation: 'password',
+        github: 'laura_web_world',
+        image: 'http://wac.450f.edgecastcdn.net/80450F/mychannel957.com/files/2010/12/106475045-200x300.jpg',
+        about: 'I work for Monzo helping people make and stick to daily budgets. I am looking for a new job at the moment, and really want to move to San Fransisco so please get in touch if you are looking for a junior developer.',
+        charity: '184854',
+        language: 'Python'
       }
     ], (err, users) => {
       if (err) return done(err);
@@ -107,17 +195,160 @@ function createQuestions(done) {
       question: {
         title: 'How can I disable .onclick for element\'s children?',
         description: 'I cannot mark a checkbox option as selected or deselect it. How can I make it available?',
-        status: 'answered',
+        coins: '10'
+      }
+    },
+    {
+      askingEmail: 'klarence@gmail.com',
+      language: 'JavaScript',
+      question: {
+        title: 'What is typeof typeof?',
+        description: 'Why does this throw an error?',
         coins: '5'
+      }
+    },
+    {
+      askingEmail: 'peter@gmail.com',
+      language: 'JavaScript',
+      question: {
+        title: 'Why does mouseover sometimes fire instead of touchstart?',
+        description: 'A handler needs to react to a touchstart or mouseover event, depending on the type of input device. Note that I want to support hybrid devices (with both mouse and touchscreen) and I cannot rely on pointer events. Now, I just setup both touchstart and mouseoverevents. And for the most part it works just fine. Also use preventDefault to prohibit simulated mouse events firing after touch events. But what is totally confusing to me is that sometimes there is a still a mouseover event occuring, and if I remove the preventDefault, it even seems that the mouseoveris firing instead of a touchstart. Why oh why is this happening?',
+        coins: '10'
+      }
+    },
+    {
+      askingEmail: 'aleksander@gmail.com',
+      language: 'JavaScript',
+      question: {
+        title: 'How can I make an ajax call to the active directory and pull thumbnail photos using post?',
+        description: 'I want to retrieve informations from the active directory (such as thumbnail photos) using post.',
+        coins: '20'
       }
     },
     {
       askingEmail: 'gigi@gmail.com',
       language: 'JavaScript',
       question: {
-        title: 'What is typeof typeof?',
-        description: 'Why does this throw an error?',
+        title: 'Sequelize is not returning instance of model',
+        description: 'I want the query to return an instance of Agent when that query is run (invoked from a POST to my api). I am using MS SQL Server 2008 R2.',
+        coins: '8'
+      }
+    },
+    {
+      askingEmail: 'huddy@gmail.com',
+      language: 'JavaScript',
+      question: {
+        title: 'How do you use callbacks properly?',
+        description: 'I would like to know how to properly use callbacks and also what is the difference between a callback and a function?',
+        coins: '15'
+      }
+    },
+    {
+      askingEmail: 'betty@gmail.com',
+      language: 'Ruby',
+      question: {
+        title: 'Is Ruby compatible with strict Page Object Pattern?',
+        description: 'With Ruby, the object type is not fixed at any point and is often ambiguous to the IDE. Therefore, I cannot see how you can realise these benefits on an automation suite built using Ruby (e.g. by using Cucumber). Can anyone show me how you would use Ruby with the Page Object Pattern to gain these benefits?',
+        coins: '10'
+      }
+    },
+    {
+      askingEmail: 'klarence@gmail.com',
+      language: 'Ruby',
+      question: {
+        title: 'How do I extract Tables from PDF files in Ruby?',
+        description: 'What is the best way for extracting Tables which are embedded in PDF documents?',
         coins: '5'
+      }
+    },
+    {
+      askingEmail: 'emily@gmail.com',
+      language: 'Ruby',
+      question: {
+        title: 'How to catch an error from a thread and then re-throw that error?',
+        description: 'How do I catch an error from a thread and then re-throw that error when all the threads have completed?',
+        coins: '10'
+      }
+    },
+    {
+      askingEmail: 'aleksander@gmail.com',
+      language: 'Ruby',
+      question: {
+        title: 'What does map(&:name) mean in Ruby?',
+        description: 'What does the (&:name) in map(&:name) mean?',
+        coins: '5'
+      }
+    },
+    {
+      askingEmail: 'gigi@gmail.com',
+      language: 'Ruby',
+      question: {
+        title: 'Calling shell commands from Ruby',
+        description: 'How do I call shell commands from inside of a Ruby program? How do I then get output from these commands back into Ruby?',
+        coins: '12'
+      }
+    },
+    {
+      askingEmail: 'laura@gmail.com',
+      language: 'Ruby',
+      question: {
+        title: 'Array slicing in Ruby is proving tricky - can someone help?',
+        description: 'I really just do not understand it at all',
+        coins: '30'
+      }
+    },
+    {
+      askingEmail: 'peter@gmail.com',
+      language: 'Python',
+      question: {
+        title: 'Can someone explain Python\'s slice notation?',
+        description: 'I need a good explanation (references are a plus) on Python\'s slice notation. To me, this notation needs a bit of picking up. It looks extremely powerful, but I haven\'t quite got my head around it.',
+        coins: '12'
+      }
+    },
+    {
+      askingEmail: 'klarence@gmail.com',
+      language: 'Python',
+      question: {
+        title: 'How do I test one variable against multiple values?',
+        description: 'I\'m trying to make a function that will compare multiple variables to an integer and output a string of three letters. I was wondering if there was a way to translate this into Python.',
+        coins: '4'
+      }
+    },
+    {
+      askingEmail: 'gigi@gmail.com',
+      language: 'Python',
+      question: {
+        title: 'How do you split a list into evenly sized chunks?',
+        description: 'I have a list of arbitrary length, and I need to split it up into equal size chunks and operate on it. There are some obvious ways to do this, like keeping a counter and two lists, and when the second list fills up, add it to the first list and empty the second list for the next round of data, but this is potentially extremely expensive.',
+        coins: '30'
+      }
+    },
+    {
+      askingEmail: 'aleksander@gmail.com',
+      language: 'Python',
+      question: {
+        title: 'What does the “yield” keyword do?',
+        description: 'What happens when the method _get_child_candidates is called? Is a list returned? A single element? Is it called again? When will subsequent calls stop?',
+        coins: '50'
+      }
+    },
+    {
+      askingEmail: 'gigi@gmail.com',
+      language: 'Python',
+      question: {
+        title: 'How to call an external command in Python',
+        description: 'How can I call an external command (as if I\'d typed it at the Unix shell or Windows command prompt) from within a Python script?',
+        coins: '6'
+      }
+    },
+    {
+      askingEmail: 'klarence@gmail.com',
+      language: 'Python',
+      question: {
+        title: 'What is a metaclass in Python?',
+        description: 'What do they do?',
+        coins: '30'
       }
     }
   ];
@@ -136,7 +367,7 @@ function createAnswers(done) {
   const answers = [
     {
       questionTitle: 'How can I disable .onclick for element\'s children?',
-      answeringEmail: 'gigi2@gmail.com',
+      answeringEmail: 'huddy@gmail.com',
       answer: {
         description: 'You should remove the click handler once you have populated the div with the checkboxes',
         chosen: true
@@ -144,16 +375,23 @@ function createAnswers(done) {
     },
     {
       questionTitle: 'How can I disable .onclick for element\'s children?',
-      answeringEmail: 'gigi2@gmail.com',
+      answeringEmail: 'emily@gmail.com',
       answer: {
-        description: 'I dunno?'
+        description: 'If you go to the relevant field you can move things around and make them work and it will look good.'
       }
     },
     {
       questionTitle: 'How can I disable .onclick for element\'s children?',
-      answeringEmail: 'gigi2@gmail.com',
+      answeringEmail: 'aleksander@gmail.com',
       answer: {
-        description: 'Checking that this works...'
+        description: 'There are so many ways of doing that I will message you and let you know exactly how to do it.'
+      }
+    },
+    {
+      questionTitle: 'How can I disable .onclick for element\'s children?',
+      answeringEmail: 'klarence@gmail.com',
+      answer: {
+        description: 'I don\t really know, can someone explain that to me too?'
       }
     }
   ];
