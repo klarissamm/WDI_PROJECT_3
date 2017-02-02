@@ -27,7 +27,7 @@
 <h2 class="QshowAnswers">Previous Answers:</h2>
 
 <div class="iquestion-inner_border" ng-repeat="answer in QuestionsShow.question.answers">
-<<<<<<< HEAD
+
     <div class="iquestion-inner">
         <div class="iquestion-icon" ng-click="QuestionsShow.selectBest(answer, $event)" ng-if="QuestionsShow.getCurrentUser()._id === QuestionsShow.question.owner._id">
           <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
@@ -38,18 +38,6 @@
             </div>
         </div>
     </div>
-=======
-   <div class="iquestion-inner">
-       <div class="iquestion-icon" ng-click="QuestionsShow.selectBest(answer, $event)" ng-if="QuestionsShow.getCurrentUser()._id === QuestionsShow.question.owner._id">
-         <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-       </div>
-       <div class="iquestion-info">
-           <div class="iquestion-info_body">
-               <div text-angular="text-angular" name="description" ng-bind-html="answer.description"></div>
-           </div>
-       </div>
-   </div>
->>>>>>> 10a9c5eeb6ba484fcb899329e8d4a4d0ebe83bd7
 </div>
 
 </section>
