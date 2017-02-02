@@ -21,6 +21,11 @@ h1 {
   float: left;
   margin: 0px;
   margin-right: 0px;
+  transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
 
   .devicon-javascript-plain:before, .devicon-ruby-plain-wordmark:before, .devicon-grunt-plain-wordmark:before, .devicon-cplusplus-plain-wordmark:before, .devicon-erlang-plain-wordmark:before, .devicon-python-plain:before, .devicon-angularjs-plain:before, .devicon-c-plain:before, .devicon-go-plain:before, .devicon-php-plain:before, .devicon-backbonejs-plain-wordmark:before, .devicon-html5-plain-wordmark:before, .devicon-java-plain-wordmark:before, .devicon-mongodb-plain-wordmark:before, .devicon-rails-plain-wordmark:before, .devicon-nodejs-plain-wordmark:before, .devicon-react-original-wordmark:before, .devicon-mysql-plain:before   {
     font-size: 100px;
@@ -30,7 +35,7 @@ h1 {
 }
 .language-list:first-child:hover {
   -webkit-transform: scale(1.3);
-   -ms-transform: scale(1.3);
-   transform: scale(1.3);
-   background-color: transparent;
+  -ms-transform: scale(1.3);
+  transform: scale(1.3);
+  background-color: transparent;
 }

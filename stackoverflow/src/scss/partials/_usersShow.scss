@@ -27,9 +27,26 @@ div.container {
 
 .questionsOnProfile {
   text-align: left;
+}
 
+p.questionsOnProfile {
+  color: #3dc58b;
+  font-size: 1.5em;
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
 }
 
 .wantLeft {
   text-align: left;
+}
+
+div.circle {
+  margin: 0 auto;
+  border-radius: 100%;
+  width: 150px;
+  height: 150px;
+  background-size: cover;
+  background-position: center;
 }
