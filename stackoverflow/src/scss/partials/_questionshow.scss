@@ -1,3 +1,44 @@
-p.ng-binding {
-  text-align: left;
+.QshowHeadline {
+    text-align: center;
+    padding-bottom: 5px;
+
+span {
+  color: $primary-color;
+}
+}
+
+.questionWrapper {
+  padding: 20px;
+  border: 1px solid #bababa;
+}
+
+.QshowTitle {
+  font-weight: bold;
+}
+
+  .QshowOwner {
+
+  span {
+    font-weight: normal;
+    text-decoration: underline;
+    color: $primary-color;
+  }
+}
+
+.QshowDescription {
+  font-size: 2rem;
+}
+
+.QshowAnswer {
+  padding-top: 10px;
+  font-weight: bold;
+}
+
+div.container {
+  margin-top: 0;
+}
+
+.QshowAnswers {
+  font-weight: bold;
+
 }
