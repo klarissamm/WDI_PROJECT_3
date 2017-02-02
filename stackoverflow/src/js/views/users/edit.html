@@ -1,4 +1,5 @@
-<h2>Edit User</h2>
+<!-- <h2 class="users-edit">Edit User</h2>
+<section class="container">
 <form ng-submit="userEdit.update()">
   <div class="form-group">
     <label for="name">Name</label>
@@ -28,5 +29,38 @@
 
 
   <input type="submit" class="btn btn-default" value="Update">
-
 </form>
+</section> -->
+
+
+<h2 class="users-edit">Edit User</h2>
+<section class="container">
+  <form ng-submit="userEdit.update()">
+    <div class="row">
+      <div class="col-md-4"><label>Name</label><input class="form-control" type="text" name="username" ng-model="userEdit.user.name" placeholder="Name"></div>
+      <div class="col-md-4"><label>Email</label><input class="form-control" type="email" name="email" ng-model="userEdit.user.email" placeholder="Email"></div>
+      <div class="col-md-4"><label>Github</label><input class="form-control" type="github" name="github" ng-model="userEdit.user.github" placeholder="Github"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-6"><label>Image</label><input class="form-control" type="text" name="Image" ng-model="userEdit.user.image" placeholder="Image"></div>
+      <div class="col-md-6"><label>Coding Language</label><input class="form-control" type="text" name="language" ng-model="userEdit.user.language" placeholder="Coding Languages"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-12"><label>About Me</label>
+        <textarea class="form-control" type="text" name="about" ng-model="userEdit.user.about" placeholder="About me"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-11"><label>Charity</label><div ng-hide="userEdit.charitiesList" class="charityselector form-group">
+        <input placeholder="Search for charities" ng-model="userEdit.charitySearch" type="search" name="charitysearch" class="form-control charity-search"></div>
+        <button ng-click="userEdit.searchCharities()" type="button" name="button" class="btn btn-primary charityButton">Search</button><br>
+        <div ng-show="userEdit.charitiesList" class="charityselector form-group">
+            <select name="charitylistchoice" ng-model="userEdit.user.charity" class="form-control">
+              <option placeholder="Select charity" ng-repeat="charity in userEdit.charitiesList" value="{{charity.charityId}}">{{charity.charityDisplayName}}</option>
+            </select>
+          </div>
+      </div>
+    </div>
+    <input type="submit" class="btn btn-default" value="Update">
+  </form>
+</section>
