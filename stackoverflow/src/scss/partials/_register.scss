@@ -1,3 +1,7 @@
+section.container {
+  position: relative;
+}
+
 p {
   text-align: center;
 }
@@ -5,6 +9,7 @@ p {
 h1.register{
   text-align: center;
   color: #333333;
+  font-weight: bold;
 }
 
 textarea.form-control.ng-pristine.ng-untouched.ng-valid.ng-empty{
@@ -25,6 +30,39 @@ button.btn.btn-primary:hover{
   border: 1px solid #ffffff;
 }
 
-div.row{
-  padding-bottom: 10px;
+input.btn.btn-primary:hover{
+  background: #039A59;
+  border: 1px solid #ffffff;
 }
+
+button.btn.btn-primary.charityButton:target{
+  background: #039A59;
+  border: 1px solid #ffffff;
+}
+
+.charityButton {
+  position: absolute;
+  right: -82px;
+  top: 24px;
+}
+
+div.row{
+  padding-bottom: 6px;
+}
+
+div.col-md-6.password{
+  margin-top: -24px;
+  position: static;
+}
+
+div.col-md-6.passwordConfirmation{
+  margin-top: -24px;
+  position: static;;
+}
+
+div.col-md-11{
+  height: 66px;
+}
+// div.col-md-11.charitySelector{
+//   margin-bottom: 16px;
+// }

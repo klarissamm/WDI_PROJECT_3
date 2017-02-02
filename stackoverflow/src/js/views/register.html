@@ -31,6 +31,7 @@
     <input placeholder="Search for charities" ng-model="register.charitySearch" type="search" name="charitysearch" class="form-control" ></div>
     <button ng-click="register.searchCharities()" type="button" name="button" class="btn btn-primary">Search</button><br>
   </div>
+
   <div ng-show="register.charitiesList" class="charityselector form-group">
     <select name="charitylistchoice" ng-model="register.user.charity">
       <option placeholder="Select charity" ng-repeat="charity in register.charitiesList" value="{{charity.charityId}}">{{charity.charityDisplayName}}</option>
@@ -55,28 +56,34 @@
   <p>Register below to get help and earn money for the charity of your choice!</p>
   <form ng-submit="register.register()">
     <div class="row">
-      <div class="col-md-4"><input class="form-control" type="text" name="username" ng-model="register.user.name" placeholder="Name"></div>
-      <div class="col-md-4">    <input class="form-control" type="email" name="email" ng-model="register.user.email" placeholder="Email"></div>
-      <div class="col-md-4">    <input class="form-control" type="github" name="github" ng-model="register.user.github" placeholder="Github"></div>
+      <div class="col-md-4"><label>Name</label><input class="form-control" type="text" name="username" ng-model="register.user.name" placeholder="Name"></div>
+      <div class="col-md-4"><label>Email</label><input class="form-control" type="email" name="email" ng-model="register.user.email" placeholder="Email"></div>
+      <div class="col-md-4"><label>Github</label><input class="form-control" type="github" name="github" ng-model="register.user.github" placeholder="Github"></div>
     </div>
     <div class="row">
-      <div class="col-md-6"><input class="form-control" type="text" name="Image" ng-model="register.user.image" placeholder="Image"></div>
-      <div class="col-md-6"><input class="form-control" type="text" name="language" ng-model="register.user.language" placeholder="Coding Languages"></div>
+      <div class="col-md-6"><label>Image</label><input class="form-control" type="text" name="Image" ng-model="register.user.image" placeholder="Image"></div>
+      <div class="col-md-6"><label>Coding Language</label><input class="form-control" type="text" name="language" ng-model="register.user.language" placeholder="Coding Languages"></div>
     </div>
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12"><label>About Me</label>
       <textarea class="form-control" type="text" name="about" ng-model="register.user.about" placeholder="About me"></textarea>
     </div>
     </div>
     <div class="row">
-      <div class="col-md-12"><div ng-hide="register.charitiesList" class="charityselector form-group">
+      <div class="col-md-11"><label>Charity</label><div ng-hide="register.charitiesList" class="charityselector form-group">
         <input placeholder="Search for charities" ng-model="register.charitySearch" type="search" name="charitysearch" class="form-control charity-search"></div>
-        <button ng-click="register.searchCharities()" type="button" name="button" class="btn btn-primary">Search</button><br>
+        <button ng-click="register.searchCharities()" type="button" name="button" class="btn btn-primary charityButton">Search</button><br>
+        <div ng-show="register.charitiesList" class="charityselector form-group">
+            <select name="charitylistchoice" ng-model="register.user.charity" class="form-control">
+              <option placeholder="Select charity" ng-repeat="charity in register.charitiesList" value="{{charity.charityId}}">{{charity.charityDisplayName}}</option>
+            </select>
+            <!-- <button ng-click="register.restartSearch()" type="button" name="button" class="btn btn-primary charitySearchAgain">Search again</button><br> -->
+          </div>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-6"><input class="form-control" type="password" name="password" ng-model="register.user.password" placeholder="Password"></div>
-      <div class="col-md-6"><input class="form-control" type="password" name="passwordConfirmation" ng-model="register.user.passwordConfirmation" placeholder="Password confirmation"></div>
+      <div class="col-md-6"><label>Password</label><input class="form-control" type="password" name="password" ng-model="register.user.password" placeholder="Password"></div>
+      <div class="col-md-6"><label>Password Confirmations</label><input class="form-control" type="password" name="passwordConfirmation" ng-model="register.user.passwordConfirmation" placeholder="Password confirmation"></div>
     </div>
     <input class="btn btn-primary" type="submit" value="Submit" />
   </form>
