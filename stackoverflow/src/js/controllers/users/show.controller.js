@@ -1,6 +1,6 @@
 angular
-  .module('ourApp')
-  .controller('UserShowCtrl', UserShowCtrl);
+.module('ourApp')
+.controller('UserShowCtrl', UserShowCtrl);
 
 UserShowCtrl.$inject = ['User', '$stateParams', '$state', 'CurrentUserService', 'Question', '$http'];
 function UserShowCtrl(User, $stateParams, $state, CurrentUserService, Question, $http){
@@ -8,17 +8,17 @@ function UserShowCtrl(User, $stateParams, $state, CurrentUserService, Question, 
 
   function getUser(){
     User
-      .get($stateParams)
-      .$promise
-      .then(response => {
-        vm.user = response;
-        $http({
-          method: 'GET',
-          url: `https://api.justgiving.com/06beb149/v1/charity/search?charityId=${vm.user.charity}`
-        }).then(response => {
-          vm.user.charity = response.data.charitySearchResults[0];
-        });
+    .get($stateParams)
+    .$promise
+    .then(response => {
+      vm.user = response;
+      $http({
+        method: 'GET',
+        url: `https://api.justgiving.com/06beb149/v1/charity/search?charityId=${vm.user.charity}`
+      }).then(response => {
+        vm.user.charity = response.data.charitySearchResults[0];
       });
+    });
   }
   getUser();
 
@@ -28,11 +28,12 @@ function UserShowCtrl(User, $stateParams, $state, CurrentUserService, Question, 
     .delete($stateParams)
     .$promise
     .then(() => {
-      $state.go('usersIndex');
+      CurrentUserService.removeUser();
+      $state.go('/');
     });
   };
 
-// If the person logged in has the same id as the user profile they can edit/delete said profile, otherwise they can not.
+  // If the person logged in has the same id as the user profile they can edit/delete said profile, otherwise they can not.
   vm.isCurrentUser = function(){
     return CurrentUserService.currentUser._id === $stateParams.id;
   };
