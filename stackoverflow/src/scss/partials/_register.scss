@@ -2,14 +2,17 @@ section.container {
   position: relative;
 }
 
-p {
+p.info {
   text-align: center;
+  font-size: 16px;
+  margin: 16px;
 }
 
 h1.register{
   text-align: center;
   color: #333333;
   font-weight: bold;
+  margin-bottom: 20px;
 }
 
 textarea.form-control.ng-pristine.ng-untouched.ng-valid.ng-empty{
@@ -35,7 +38,7 @@ input.btn.btn-primary:hover{
   border: 1px solid #ffffff;
 }
 
-button.btn.btn-primary.charityButton:target{
+button.btn.btn-primary.charityButton:focus{
   background: #039A59;
   border: 1px solid #ffffff;
 }
