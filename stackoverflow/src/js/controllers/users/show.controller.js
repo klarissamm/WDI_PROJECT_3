@@ -28,7 +28,9 @@ function UserShowCtrl(User, $stateParams, $state, CurrentUserService, Question, 
     .delete($stateParams)
     .$promise
     .then(() => {
-      $state.go('usersIndex');
+      CurrentUserService.removeUser();
+      $state.go('/');
+      // $state.go('usersIndex');
     });
   };
 
