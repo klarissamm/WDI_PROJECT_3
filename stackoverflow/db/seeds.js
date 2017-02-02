@@ -231,7 +231,7 @@ function createQuestions(done) {
       askingEmail: 'aleks@gmail.com',
       language: 'JavaScript',
       question: {
-        title: 'How can I make an ajax call to the active directory and pull thumbnail photos using post?',
+        title: 'How can I make an ajax call to the active directory?',
         description: 'I want to retrieve informations from the active directory (such as thumbnail photos) using post.',
         coins: '20'
       }
