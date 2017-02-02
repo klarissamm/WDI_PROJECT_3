@@ -30,7 +30,6 @@ function UserShowCtrl(User, $stateParams, $state, CurrentUserService, Question, 
     .then(() => {
       CurrentUserService.removeUser();
       $state.go('/');
-      // $state.go('usersIndex');
     });
   };
 
