@@ -4,12 +4,12 @@ const Answer    = require('../models/answer');
 const Language  = require('../models/language');
 const Question  = require('../models/question');
 const config    = require('../config/config');
+const async     = require('async');
 const Promise   = require('bluebird');
-const async     = Promise.promisifyAll(require('async'));
-
 
 //connection to the DB
-mongoose.Promise = global.Promise;
+mongoose.Promise = Promise;
+
 mongoose.connect(config.db, (err) => {
   if(err) return console.log(`Connection error: ${err}`);
   console.log(`Connected to db: ${config.db}`);
@@ -23,10 +23,10 @@ async.waterfall([
   createAnswers
 ], function end(err) {
   if (err) {
-    console.log('ERROR', err);
+    console.log('Error with seeding', err);
     return process.exit();
   }
-  console.log('SUCCESS');
+  console.log('Seeding complete!');
   return process.exit();
 });
 
@@ -122,11 +122,12 @@ function createQuestions(done) {
     }
   ];
   return Promise.map(questions, (options) => {
-    return createQuestion(options);
+    console.log(`Making a question!`)
+    return createQuestionPromise(options);
   })
-  .then(questions => {
-    console.log(`${questions.length} were created`);
-    return done();
+  .then(() => {
+    console.log('Finished creating questions!');
+    return done(null);
   })
   .catch(done);
 }
@@ -158,90 +159,96 @@ function createAnswers(done) {
     }
   ];
   return Promise.map(answers, (options) => {
-    return createAnswer(options);
+    return createAnswerPromise(options);
   })
-  .then(answers => {
-    console.log(`${answers.length} were created`);
-    return done();
+  .then(() => {
+    console.log('Finished creating answers!');
+    return done(null);
   })
   .catch(done);
 }
 
+const createQuestionPromise = Promise.promisifyAll(createQuestion);
+
 function createQuestion(options) {
-  return new Promise((resolve, reject) => {
-    async.waterfall([
-      function chooseAskingUser(done) {
-        User
-          .findOne({
-            email: options.askingEmail
-          }, (err, user) => {
-            if (err) return done(err);
-            return done(null, user);
-          });
-      },
-      function chooseLanguage(user, done) {
-        Language.findOne({ name: options.language }, (err, language) => {
-          if (err) return done(err);
-          return done(null, user, language);
+  console.log('Creating a question inside createQuestion');
+  async.waterfall([
+    function chooseAskingUser(next) {
+      console.log('chooseAskingUser')
+      User
+        .findOne({
+          email: options.askingEmail
+        }, (err, user) => {
+          console.log('ERROR', err);
+          if (err) return next(err);
+          console.log(`${user} found for chooseAskingUser`);
+          return next(null, user);
         });
-      },
-      function createQuestion(user, language, done) {
-        options.question.owner    = user._id;
-        options.question.language = language._id;
-        Question
-          .create(options.question, (err, question) => {
-            if (err) return done(err);
-            console.log(`${question.title} was created`);
-            return done(null, question);
-          });
-      }
-    ], function end(err, question) {
-      if (err) {
-        console.log('Error creating a question', err);
-        return reject(err);
-      }
-      console.log(`Success, ${question.title} was created`);
-      return resolve(question);
-    });
+    },
+    function chooseLanguage(user, next) {
+      Language.findOne({
+        name: options.language
+      }, (err, language) => {
+        if (err) return next(err);
+        console.log(`${language.name} found for chooseLanguage`);
+        return next(null, user, language);
+      });
+    },
+    function createQuestion(user, language, next) {
+      options.question.owner    = user._id;
+      options.question.language = language._id;
+      Question
+        .create(options.question, (err, question) => {
+          if (err) return next(err);
+          console.log(`${question.title} was created`);
+          return next(null, question);
+        });
+    }
+  ], function end(err, question) {
+    if (err) {
+      console.log('Error', err);
+      return process.exit();
+    }
+    console.log(`Success ${question.title} was created.`);
   });
 }
 
+const createAnswerPromise = Promise.promisifyAll(createAnswer);
+
 function createAnswer(options) {
-  return new Promise((resolve, reject) => {
-    async.waterfall([
-      function chooseQuestion(done) {
-        Question.findOne({
-          title: options.questionTitle
-        }, (err, question) => {
-          if (err) return done(err);
-          return done(null, question);
+  async.waterfall([
+    function chooseQuestion(next) {
+      Question.findOne({
+        title: options.questionTitle
+      }, (err, question) => {
+        if (err) return next(err);
+        return next(null, question);
+      });
+    },
+    function chooseAnsweringUser(question, next) {
+      User
+        .findOne({
+          email: options.answeringEmail
+        }, (err, user) => {
+          if (err) return next(err);
+          if (!user) return next('No user was found.');
+          return next(null, user, question);
         });
-      },
-      function chooseAnsweringUser(question, done) {
-        User
-          .findOne({
-            email: options.answeringEmail
-          }, (err, user) => {
-            if (err) return done(err);
-            return done(null, user, question);
-          });
-      },
-      function createAnswer(user, question, done) {
-        options.answer.owner    = user._id;
-        options.answer.question = question._id;
-        Answer.create(options.answer, (err, answer) => {
-          if (err) return done(err);
-          console.log(`${answer.description} was created`);
-          return done(null, answer);
-        });
-      }
-    ], function end(err, answer) {
-      if (err) {
-        console.log('Error creating answer', err);
-        return reject(err);
-      }
-      console.log(`Success, an answer was created!`);
-      return resolve(answer);
-    });
+    },
+    function createAnswer(user, question, next) {
+      options.answer.owner    = user._id;
+      options.answer.question = question._id;
+      Answer.create(options.answer, (err, answer) => {
+        if (err) return next(err);
+        console.log(`${answer.description} was created`);
+        return next(null, answer);
+      });
+    }
+  ], function end(err) {
+    if (err) {
+      console.log('Error', err);
+      return process.exit();
+    }
+    console.log('Success. A question was answered.');
   });
 }
