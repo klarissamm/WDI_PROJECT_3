@@ -15,11 +15,22 @@ body {
 }
 
 .site-footer, .page-wrap:after {
-  height: 142px;
+  height: 140 px;
 }
 .site-footer {
   margin-top: 60px;
   background: orange;
+
+  li {
+    float: left;
+    list-style-type: none;
+    margin: 10px;
+  }
+}
+
+.p-footer {
+  float: clear;
+  line-height: 142px;
 }
 
 section {
