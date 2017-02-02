@@ -2,10 +2,19 @@ angular
 .module('ourApp')
 .controller('QuestionsShowCtrl', QuestionsShowCtrl);
 
-QuestionsShowCtrl.$inject = ['Question', '$stateParams', 'Answer', 'CurrentUserService', '$http'];
-function QuestionsShowCtrl(Question, $stateParams, Answer, CurrentUserService, $http){
+QuestionsShowCtrl.$inject = ['Question', '$stateParams', 'Answer', 'CurrentUserService', '$http', 'User'];
+function QuestionsShowCtrl(Question, $stateParams, Answer, CurrentUserService, $http, User){
   const vm = this;
 
+// vm.getOwner = function(question){
+//
+//   User
+//   .get({ id: question.owner})
+//   .$promise
+//   .then(response => {
+//     console.log(response);
+//   });
+// };
 // use factory to use get request
 
 

@@ -92,6 +92,17 @@ function createUsers(done) {
         language: 'PHP'
       },
       {
+        name: 'Connie',
+        email: 'connie@gmail.com',
+        password: 'password',
+        passwordConfirmation: 'password',
+        github: 'connieLovescoder',
+        image: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRH2bJzM-FvlLQJ87T88uKd7tEeDyNCz10AZ5A2fKw8xxaNHz3K',
+        about: 'I started coding 5 years ago after feeling unfulfilled in my career as a model. I was not intellectually stimulated enough and I wanted to empower other women with my brain',
+        charity: '184157',
+        language: 'Python, Ruby'
+      },
+      {
         name: 'Huddy',
         email: 'huddy@gmail.com',
         password: 'password',

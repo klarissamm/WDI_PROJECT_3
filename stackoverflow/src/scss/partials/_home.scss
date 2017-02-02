@@ -26,8 +26,24 @@ h1.display-3 {
     vertical-align: middle;
     height: 200px;
 
-    span {
+    .homepage-span {
+      position: relative;
+      left: 20px;
+      top: 10px;
+      margin: 0 auto;
+      text-align: center;
       font-size: 40px;
+      color: #333;
     }
   }
+}
+
+
+
+a {
+  cursor: pointer; cursor: hand;
+}
+
+p.navbar-text {
+  cursor: pointer; cursor: hand;
 }

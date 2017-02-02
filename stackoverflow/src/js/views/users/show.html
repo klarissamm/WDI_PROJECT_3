@@ -1,12 +1,10 @@
-<<<<<<< HEAD
-
 <div class="container">
   <div class="span3 well col-sm-5 col-xs-12">
     <center>
       <div class="circle" style="background-image: url({{ userShow.user.image }})"></div>
       <h3>{{ userShow.user.name }}</h3>
       <h4 class="media-heading">GitHub: {{userShow.user.github}}</h4>
-      <h4 class="media-heading"><small>Email: {{userShow.user.email}}</small></h4>
+      <h4 class="media-heading"><small>Email:{{userShow.user.email}}</small></h4>
       <h4 class="media-heading"><small>Languages: {{userShow.user.language}}</small></h4>
       <h4 class="media-heading"><small>About Me: {{userShow.user.about}}</small></h4>
 
@@ -15,8 +13,6 @@
         <button ng-if="userShow.isCurrentUser()" class="btn btn-primary" ui-sref="userEdit">Edit</button>
         <button ng-if="userShow.isCurrentUser()" class="btn btn-warning" ng-click="userShow.delete()">Delete</button>
       </center>
-
-<!-- Need to set up a delete alert for above delete -->
 
     </center>
   </div>
@@ -35,18 +31,11 @@
 
   <div class="span3 well col-sm-6 col-sm-offset-1 col-xs-12">
     <div class="questionsOnProfile">
-      <h4>Questions: (need to link to answers page)</h4>
-      <h6 class="mb-1" ng-repeat="question in userShow.user.questions">
-        <p class="questionsOnProfile" ui-sref="questionsShow({id: question})">
+      <h4>Questions:</h4>
+      <h6 class="mb-1 userShowQuestions" ng-repeat="question in userShow.user.questions">
+        <p class="questionsOnProfile" ui-sref="questionsShow({id: question._id})">
           <span class="glyphicon glyphicon-circle-arrow-right"></span> {{ question.title }} </p>
-      </h6>
+        </h6>
       </div>
+    </div>
   </div>
-
-
-</div>
-
-
-
-<!--
-working line 38 <p class="questionsOnProfile" ui-sref="questionsShow({id: question._id})">{{ question.title}} </p> -->

@@ -5,18 +5,8 @@
     <div class="circle" style="background-image: url({{ user.image }})"></div>
     <div class="card-block">
       <h4 class="card-title">{{ user.name }}</h4>
-      <p>{{ user.language }}</p>
-      <a ui-sref="userShow({ id: user._id})" href="#" class="btn btn-primary">More</a>
-<!-- =======
-  <div class="userCard">
-    <div  class="col-md-3 usercard" ng-repeat="user in usersIndex.users">
-      <img class="card-img-top" ng-src="{{ user.image }}" alt="Card image cap">
-      <div class="card-block">
-        <h4 class="card-title">{{ user.name }}</h4>
-        <p>Potentially little snipet?</p>
-        <a ui-sref="userShow({ id: user._id})" href="#" class="btn btn-primary">More</a>
-      </div>
->>>>>>> b9e5b7e3a8325f2faa79ca96bd8f314133937a89 -->
+      <p class="language">Loves: {{ user.language }}</p>
+      <a ui-sref="userShow({ id: user._id})" href="#" class="btn btn-primary"> Find Out More </a>
     </div>
   </div>
 </div>
