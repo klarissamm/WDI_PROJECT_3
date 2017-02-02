@@ -15,8 +15,8 @@ function QuestionsCreateCtrl($http, API, $state, Language){
     if(vm.question.language){
       return $http
       .post(`${API}/questions`, vm.question)
-      .then(() => {
-        $state.go('languages');
+      .then((response) => {
+        $state.go('questionsShow', { id: response.data._id });
       });
     }
   };
