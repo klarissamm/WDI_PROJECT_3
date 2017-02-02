@@ -50,7 +50,7 @@
 </div>
 </section> -->
 
-<!-- <section class="container">
+<section class="container">
   <h1 class="register">Register</h1>
   <p>Register below to get help and earn money for the charity of your choice!</p>
   <form ng-submit="register.register()">
@@ -63,5 +63,10 @@
       <div class="col-md-6"><input class="form-control" type="text" name="Image" ng-model="register.user.image" placeholder="Image"></div>
       <div class="col-md-6"><input class="form-control" type="text" name="language" ng-model="register.user.language" placeholder="Coding Languages"></div>
     </div>
+    <div class="row">
+      <div class="col-md-6"><input class="form-control" type="password" name="password" ng-model="register.user.password" placeholder="Password"></div>
+      <div class="col-md-6"><input class="form-control" type="password" name="passwordConfirmation" ng-model="register.user.passwordConfirmation" placeholder="Password confirmation"></div>
+    </div>
+    <input class="btn btn-primary" type="submit" value="Submit" />
   </form>
-</section> -->
+</section>
