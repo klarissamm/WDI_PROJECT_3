@@ -16,7 +16,7 @@
   <input type="submit" class="btn btn-primary pull-right" />
 </form>
 
-<hr>
+<!-- <hr> -->
 
 <h2>Answers:</h2>
 <!-- <ul>
@@ -29,12 +29,12 @@
 
       </div>
   </li>
-</ul> -->
+</ul>
 
 <div class="iquestion-inner_border" ng-repeat="answer in QuestionsShow.question.answers">
     <div class="iquestion-inner">
         <div class="iquestion-icon" ng-click="QuestionsShow.selectBest(answer, $event)">
-          <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-edit answer-icon" aria-hidden="true"></span>
         </div>
         <div class="iquestion-info">
             <div class="iquestion-info_body">
