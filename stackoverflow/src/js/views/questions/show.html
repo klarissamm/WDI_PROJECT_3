@@ -4,13 +4,13 @@
 <p>Earn £{{QuestionsShow.question.coins}} for the charity of your choice.</p>
 
 <p ng-bind-html="QuestionsShow.question.description"></p>
-
+<!-- <div ta-toolbar="[['bold','italics'],['pre'], ['insertLink']  ]" text-angular="text-angular" name="description" ng-model="QuestionsShow.newAnswer.description"></div> -->
 <h3>Post Your Answer</h3>
 <form ng-submit="QuestionsShow.submitAnswer()" class="clearfix">
   <div class="row">
     <div class="container">
       <h4>Code Editor</h4>
-      <div ta-toolbar="[['bold','italics'],['pre'], ['insertLink']  ]" text-angular="text-angular" name="description" ng-model="QuestionsShow.newAnswer.description"></div>
+      <div ta-toolbar="[['pre'], ['insertLink']]" class="btn-toolbar" text-angular="text-angular" name="description" ng-model="QuestionsShow.newAnswer.description" ></div>
     </div>
   </div>
   <input type="submit" class="btn btn-primary pull-right" />
@@ -19,15 +19,31 @@
 <hr>
 
 <h2>Answers:</h2>
-<ul>
+<!-- <ul>
   <li class="question-show" ng-repeat="answer in QuestionsShow.question.answers">
       <div class="row">
-        <div class="container border_answer_box">
-          <div ng-class="{green: answer.chosen}" text-angular="text-angular" name="description" ng-bind-html="answer.description"></div>
+        <div class="container">
+          <div ng-class="{color: answer.chosen}" text-angular="text-angular" name="description" ng-bind-html="answer.description"></div>
         </div>
         <button ng-click="QuestionsShow.selectBest(answer)" type="button" name="button" ng-if="!answer.chosen && QuestionsShow.getCurrentUser()._id === QuestionsShow.question.owner._id">Better</button>
 
       </div>
   </li>
-</ul>
+</ul> -->
+
+<div class="iquestion-inner_border" ng-repeat="answer in QuestionsShow.question.answers">
+    <div class="iquestion-inner">
+        <div class="iquestion-icon" ng-click="QuestionsShow.selectBest(answer, $event)">
+          <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+        </div>
+        <div class="iquestion-info">
+            <div class="iquestion-info_body">
+                <div text-angular="text-angular" name="description" ng-bind-html="answer.description"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ng-if="!answer.chosen && QuestionsShow.getCurrentUser()._id === QuestionsShow.question.owner._id" -->
+
 </section>
