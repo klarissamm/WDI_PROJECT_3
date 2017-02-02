@@ -12,7 +12,7 @@ const dest       = `${__dirname}/public`;
 mongoose.Promise = global.Promise;
 mongoose.connect(config.db, (err) => {
   if(err) return console.log(err);
-  return console.log('conected to stackOverIt db');
+  return console.log('connected to CodeFund db');
 });
 
 if (app.get('env') !== 'production') app.use(cors());
