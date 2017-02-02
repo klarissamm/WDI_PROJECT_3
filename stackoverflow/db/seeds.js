@@ -393,6 +393,27 @@ function createAnswers(done) {
       answer: {
         description: 'I don\t really know, can someone explain that to me too?'
       }
+    },
+    {
+      questionTitle: 'Is Ruby compatible with strict Page Object Pattern?',
+      answeringEmail: 'gigi@gmail.com',
+      answer: {
+        description: 'As long as somewhere on the step definition class you explicitly create a new page object (in the above example: LaunchPage.new), then all subsequent pages will appear and provide intellisense method/property values.'
+      }
+    },
+    {
+      questionTitle: 'Is Ruby compatible with strict Page Object Pattern?',
+      answeringEmail: 'klarence@gmail.com',
+      answer: {
+        description: 'I use Spinach instead of Cucumber - it\'s almost identical, but the steps are enclosed within a class that is unique to that feature file - so there\'s no leakage of objects outside of the current scope.'
+      }
+    },
+    {
+      questionTitle: 'Is Ruby compatible with strict Page Object Pattern?',
+      answeringEmail: 'ismae@gmail.com',
+      answer: {
+        description: 'This is the approach that I use in ruby. I think that it\'s the clearest way to work. Also this enables you to store variables between steps in the instance of that page. In general I avoid this, as from a maintenance POV it\'s not always clear where it was set, but in some cases it does make it a lot easier to use than using many @variables in the cucumber steps.'
+      }
     }
   ];
   return Promise.map(answers, (options) => {
