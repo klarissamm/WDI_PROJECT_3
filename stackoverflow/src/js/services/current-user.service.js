@@ -2,6 +2,8 @@ angular
   .module('ourApp')
   .service('CurrentUserService', CurrentUserService);
 
+// lets the DOM know if you are loggedIn/loggedOut - like a microphone
+
 CurrentUserService.$inject = ['TokenService', '$rootScope', 'User'];
 function CurrentUserService(TokenService, $rootScope, User) {
   const self = this;

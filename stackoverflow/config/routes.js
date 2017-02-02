@@ -15,10 +15,6 @@ router.route('/login')
   .post(authentications.login);
 router.route('/languages')
   .get(languages.index);
-// The language page will show all of the questions
-// e.g. /languages/1212312312313
-// You might want to change this to use a name rather than an id
-// e.g. /languages/ruby
 router.route('/languages/:id')
   .get(languages.show);
 router.route('/users')

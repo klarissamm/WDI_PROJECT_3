@@ -35,16 +35,13 @@ function questionsCreate(req, res) {
     return res.status(200).json({success: true});
   });
 }
-// function moviesNew(req, res) {
-//  Languages.find({}, (err, languages) => {
-//    if (err) return res.render('movies/new', { error: err.message });
-//    return res.render('movies/new', { error: null, directors });
-//  });
-// }
-/*
- * PROTECTED
- * DELETE /questions/:id
- */
+
+
+// FOR ADMINS.
+// /*
+//  * PROTECTED
+//  * DELETE /questions/:id
+//  */
 function questionsDelete(req, res){
   if (req.user.role !== 'admin') {
     return res.status(401).json({

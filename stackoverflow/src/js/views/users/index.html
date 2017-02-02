@@ -1,14 +1,14 @@
 <h1>Users</h1>
 
 <div class="container">
-  <div class="userCard style="width: 20rem">
-  <div  class="col-md-3 usercard" ng-repeat="user in usersIndex.users">
-    <img class="card-img-top" ng-src="{{ user.image }}" alt="Card image cap">
-    <div class="card-block">
-      <h4 class="card-title">{{ user.name }}</h4>
-      <p>Potentially little snipet?</p>
-      <a ui-sref="userShow({ id: user._id})" href="#" class="btn btn-primary">More</a>
+  <div class="userCard" style="width: 20rem">
+    <div  class="col-md-3 usercard" ng-repeat="user in usersIndex.users">
+      <img class="card-img-top" ng-src="{{ user.image }}" alt="Card image cap">
+      <div class="card-block">
+        <h4 class="card-title">{{ user.name }}</h4>
+        <p>Potentially little snipet?</p>
+        <a ui-sref="userShow({ id: user._id})" href="#" class="btn btn-primary">More</a>
+      </div>
     </div>
   </div>
 </div>
-<!-- </div> -->

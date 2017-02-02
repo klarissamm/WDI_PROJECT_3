@@ -32,7 +32,6 @@ function authenticationsRegister(req, res){
  *  * POST /login
  */
 function authenticationsLogin(req, res){
-  console.log('running back ;ogin');
   User.findOne({ email: req.body.email }, (err, user) => {
     if (err) return res.status(500).json({success: false, message: `${err}` });
     if (!user || !user.validatePassword(req.body.password)) {
@@ -48,6 +47,7 @@ function assignUser(req, res, next){
   // Get the JWT token from the Authorization Header
   // 'Bearer asdjnaksdnkajsndas.kansdnansdakjsndasd.ansdoiansdoinasdasd'
   const token = req.headers['authorization'].split(' ')[1];
+  // console.log(req.headers['authorization']); --> ASK ALEX
 
   // Using the jwt.verify method, decode the payload
   jwt.verify(token, config.secret, (err, decoded) => {
