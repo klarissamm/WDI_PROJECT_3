@@ -33,7 +33,7 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
               <li ng-show="main.user">
-                <p class="navbar-text">Welcome, {{ main.user.name }}</p>
+                <p ui-sref="userShow({id: main.user._id})" class="navbar-text">Welcome, {{ main.user.name }}</p>
               </li>
               <li ng-show="main.user">
                 <a ui-sref="questionsCreate"><span class="btn btn-primary">Post your question</span></a>
