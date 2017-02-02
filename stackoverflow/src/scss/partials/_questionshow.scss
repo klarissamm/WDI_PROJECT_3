@@ -1,7 +1,17 @@
 p.ng-binding {
   text-align: left;
 }
+
 input.btn.btn-primary.pull-right:focus{
   background: #039A59;
   border: 1px solid #ffffff;
+}
+
+.language-show {
+  font-size: 2rem;
+  padding: 25px;
+}
+
+.btn-question {
+  float: right;
 }

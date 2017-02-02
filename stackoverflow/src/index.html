@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html ng-app="ourApp">
 
-  <head>
-    <meta charset="utf-8">
-    <title>CodeFund</title>
-    <base href="/" />
-    <link href="https://fonts.googleapis.com/css?family=Khula:400,800" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
-    <style type="text/css">
-        </style>
+<head>
+  <meta charset="utf-8">
+  <title>CodeFund</title>
+  <base href="/" />
+  <link href="https://fonts.googleapis.com/css?family=Khula:400,800" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
+  <style type="text/css">
+  </style>
   <!-- inject:js -->
   <!-- endinject -->
   <!-- inject:css -->
@@ -16,7 +16,6 @@
 </head>
 <body ng-controller="MainCtrl as main">
   <header>
-
     <nav class="navbar navbar-default">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -29,6 +28,7 @@
           </button>
           <a class="navbar-brand" ui-sref="home">CodeFund</a>
         </div>
+
 <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
@@ -71,14 +71,10 @@
     </div>
 
     <main class="page-wrap" ui-view></main>
+  <footer>
+    <p class="footer-text">CodeFund is a registered trademark of Team Undefined.</br>
+      Made with &hearts; at GA</p>
+    </footer>
+
   </body>
-
-<footer class="site-footer">
-
-
-    <p class="p-footer">CodeFund is a registered trademark of Team Undefined.
-    Made with &hearts; at GA</p>
-
-
-</footer>
-</html>
+  </html>
