@@ -16,6 +16,10 @@ select.ng-pristine.ng-untouched.ng-valid.ng-empty{
   border-top: 1px solid #3dc58b;
 }
 
+input.form-control.charity-search.ng-pristine.ng-untouched.ng-valid.ng-empty{
+  margin-bottom: -8px;
+}
+
 button.btn.btn-primary:hover{
   background: #039A59;
   border: 1px solid #ffffff;

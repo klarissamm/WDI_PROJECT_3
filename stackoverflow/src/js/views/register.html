@@ -64,6 +64,17 @@
       <div class="col-md-6"><input class="form-control" type="text" name="language" ng-model="register.user.language" placeholder="Coding Languages"></div>
     </div>
     <div class="row">
+      <div class="col-md-12">
+      <textarea class="form-control" type="text" name="about" ng-model="register.user.about" placeholder="About me"></textarea>
+    </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12"><div ng-hide="register.charitiesList" class="charityselector form-group">
+        <input placeholder="Search for charities" ng-model="register.charitySearch" type="search" name="charitysearch" class="form-control charity-search"></div>
+        <button ng-click="register.searchCharities()" type="button" name="button" class="btn btn-primary">Search</button><br>
+      </div>
+    </div>
+    <div class="row">
       <div class="col-md-6"><input class="form-control" type="password" name="password" ng-model="register.user.password" placeholder="Password"></div>
       <div class="col-md-6"><input class="form-control" type="password" name="passwordConfirmation" ng-model="register.user.passwordConfirmation" placeholder="Password confirmation"></div>
     </div>
