@@ -14,7 +14,6 @@ const User = require('../models/user');
 function usersIndex(req, res){
   User
     .find({})
-    .populate(['questions'])
     .exec((err, users) => {
       if (err) return res.status(500).json({ message: 'Something went wrong.' });
       if (!users) return res.status(404).json({ message: 'User not found.' });
@@ -23,21 +22,11 @@ function usersIndex(req, res){
     });
 }
 
-// Language
-// .find({})
-// .populate(['questions'])
-// .exec((err, language) => {
-//   if (err) return res.status(500).json(err);
-//   if (!language) return res.status(404).json({ error: 'No language was found.' });
-//   return res.status(200).json(language);
-// });
-
 /*
  * UNPROTECTED
  * GET /users/:id
  */
 function usersShow(req, res){
-  console.log('running');
   User
     .findById({ _id: req.params.id })
     .populate(['questions'])
@@ -61,15 +50,13 @@ function usersUpdate(req, res){
     });
 }
 
+//new: true -> the database is being updated with the new information.
+
 /*
  * PROTECTED
  * DELETE /users/:id
  */
 function usersDelete(req, res){
-  if (req.user._id === req.params.id) return res.status(500).json({
-    message: 'You can\'t delete yourself'
-  });
-
   User.findByIdAndRemove(req.params.id, (err) => {
     if (err) return res.status(500).json({ message: 'Something went wrong.' });
     return res.status(200).json({success: true});

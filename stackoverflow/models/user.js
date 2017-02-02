@@ -16,6 +16,8 @@ const userSchema = mongoose.Schema({
   questions: [{ type: mongoose.Schema.ObjectId, ref: 'Question' }]
 });
 
+// the only way to add an admin in through seeding. Currently, admins have no functionality.
+
 
 userSchema.set('toJSON', {
   transform: function(doc, ret){

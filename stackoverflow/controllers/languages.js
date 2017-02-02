@@ -15,7 +15,6 @@ const Language = require('../models/language');
 function languagesIndex(req, res){
   Language
   .find({})
-  .populate(['questions'])
   .exec((err, language) => {
     if (err) return res.status(500).json(err);
     if (!language) return res.status(404).json({ error: 'No language was found.' });
@@ -55,6 +54,7 @@ function languagesCreate(req, res){
   });
 }
 
+// FOR ADMINS.
 /*
  * PROTECTED
  * PUT /languages/:id

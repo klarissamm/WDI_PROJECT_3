@@ -12,12 +12,10 @@ function UserShowCtrl(User, $stateParams, $state, CurrentUserService, Question, 
       .$promise
       .then(response => {
         vm.user = response;
-        console.log(vm.user.charity);
         $http({
           method: 'GET',
           url: `https://api.justgiving.com/06beb149/v1/charity/search?charityId=${vm.user.charity}`
         }).then(response => {
-          console.log(response);
           vm.user.charity = response.data.charitySearchResults[0];
         });
       });
@@ -34,6 +32,7 @@ function UserShowCtrl(User, $stateParams, $state, CurrentUserService, Question, 
     });
   };
 
+// If the person logged in has the same id as the user profile they can edit/delete said profile, otherwise they can not.
   vm.isCurrentUser = function(){
     return CurrentUserService.currentUser._id === $stateParams.id;
   };

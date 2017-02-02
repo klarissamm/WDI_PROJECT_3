@@ -11,19 +11,18 @@ const questionSchema = mongoose.Schema({
   owner: { type: mongoose.Schema.ObjectId, ref: 'User'}
 });
 
+// language + owner are not in an array because every question can only have 1 of each, but multiple answers.
+
+// enum means that you can have multiple values for the key. With enum, use a default.
+
+// before it saves the question, the below function saves the language and user and adds it into the model.
 
 questionSchema.pre('save', function(done) {
   return this.model('Language').findByIdAndUpdate(this.language, { $addToSet: { questions: this._id }}, done);
 });
 
-// this should work. if not, ask alex for help
 questionSchema.pre('save', function(done) {
   return this.model('User').findByIdAndUpdate(this.owner, { $addToSet: { questions: this._id }}, done);
 });
-
-// questionSchema.pre('save', function(done) {
-//   return this.model('Answer').findByIdAndUpdate(this.answers, { $addToSet: { questions: this._id }}, done);
-// });
-// Add to the owner
 
 module.exports = mongoose.model('Question', questionSchema);

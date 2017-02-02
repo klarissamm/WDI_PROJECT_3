@@ -6,6 +6,7 @@ QuestionsShowCtrl.$inject = ['Question', '$stateParams', 'Answer', 'CurrentUserS
 function QuestionsShowCtrl(Question, $stateParams, Answer, CurrentUserService, $http){
   const vm = this;
 
+// use factory to use get request
   vm.question = Question.get($stateParams);
   vm.newAnswer = {
     question: $stateParams.id
@@ -27,6 +28,8 @@ function QuestionsShowCtrl(Question, $stateParams, Answer, CurrentUserService, $
     });
   };
 
+// Pass answer to selectBest function, it is saved in newAnswer(above). We validate the answer.
+
   vm.selectBest = function(answer){
     $http({
       method: 'PUT',
@@ -40,3 +43,5 @@ function QuestionsShowCtrl(Question, $stateParams, Answer, CurrentUserService, $
     });
   };
 }
+
+// Answers are false by default until selected true here. If you choose one answer and then select another answer, the first chosen will revert back to false and second will render true.

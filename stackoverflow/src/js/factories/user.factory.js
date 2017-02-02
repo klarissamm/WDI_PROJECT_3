@@ -10,5 +10,3 @@ function userFactory(API, $resource){
     'update': { method: 'PUT'}
   });
 }
-
-// adding for commit
