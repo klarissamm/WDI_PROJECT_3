@@ -7,6 +7,16 @@ function QuestionsShowCtrl(Question, $stateParams, Answer, CurrentUserService, $
   const vm = this;
 
 // use factory to use get request
+
+
+// use factory to use get request
+//   vm.precolor = function(){
+//     let color = '#';
+//     let letters = ['000000','FF0000','00FF00','0000FF','FFFF00','00FFFF','FF00FF','C0C0C0'];
+//     color += letters[Math.floor(Math.random() * letters.length)];
+//     document.getElementByClassName('pre').style.color = color; // Setting the random color on your div element.
+// }
+
   vm.question = Question.get($stateParams);
   vm.newAnswer = {
     question: $stateParams.id
@@ -30,7 +40,7 @@ function QuestionsShowCtrl(Question, $stateParams, Answer, CurrentUserService, $
 
 // Pass answer to selectBest function, it is saved in newAnswer(above). We validate the answer.
 
-  vm.selectBest = function(answer){
+  vm.selectBest = function(answer, $event){
     $http({
       method: 'PUT',
       url: `http://localhost:7000/api/questions/${$stateParams.id}/answers/${answer._id}`,
@@ -40,6 +50,7 @@ function QuestionsShowCtrl(Question, $stateParams, Answer, CurrentUserService, $
         vm.question.answers[i].chosen = false;
       }
       vm.question.answers[vm.question.answers.indexOf(answer)].chosen = true;
+      angular.element($event.target).removeClass('glyphicon-edit').addClass('glyphicon-check');
     });
   };
 }
