@@ -1,49 +1,42 @@
 <section class="container">
-<h2>{{QuestionsShow.question.title}}</h2>
-<label>{{QuestionsShow.question.owner.name}}</label>
-<p>Earn £{{QuestionsShow.question.coins}} for the charity of your choice.</p>
+<h2 class="QshowHeadline">Earn <span>£{{QuestionsShow.question.coins}}</span> for the charity of your choice</h2>
 
-<p ng-bind-html="QuestionsShow.question.description"></p>
-<!-- <div ta-toolbar="[['bold','italics'],['pre'], ['insertLink']  ]" text-angular="text-angular" name="description" ng-model="QuestionsShow.newAnswer.description"></div> -->
-<h3>Post Your Answer</h3>
-<form ng-submit="QuestionsShow.submitAnswer()" class="clearfix">
-  <div class="row">
-    <div class="container">
-      <h4>Code Editor</h4>
-      <div ta-toolbar="[['pre'], ['insertLink']]" class="btn-toolbar" text-angular="text-angular" name="description" ng-model="QuestionsShow.newAnswer.description" ></div>
-    </div>
-  </div>
-  <input type="submit" class="btn btn-primary pull-right" />
-</form>
+<div class="questionWrapper">
 
-<!-- <hr> -->
 
-<h2>Answers:</h2>
-<!-- <ul>
-  <li class="question-show" ng-repeat="answer in QuestionsShow.question.answers">
-      <div class="row">
-        <div class="container">
-          <div ng-class="{color: answer.chosen}" text-angular="text-angular" name="description" ng-bind-html="answer.description"></div>
-        </div>
-        <button ng-click="QuestionsShow.selectBest(answer)" type="button" name="button" ng-if="!answer.chosen && QuestionsShow.getCurrentUser()._id === QuestionsShow.question.owner._id">Better</button>
+<h3 class="QshowTitle">{{QuestionsShow.question.title}}</h3>
+<p class="QshowOwner" ui-sref="userShow({id: QuestionsShow.question.owner._id})">Posted by: <span>{{QuestionsShow.question.owner.name}}</span></p>
 
-      </div>
-  </li>
-</ul>
+<p class="QshowDescription" ng-bind-html="QuestionsShow.question.description"></p>
 
-<div class="iquestion-inner_border" ng-repeat="answer in QuestionsShow.question.answers">
-    <div class="iquestion-inner">
-        <div class="iquestion-icon" ng-click="QuestionsShow.selectBest(answer, $event)">
-          <span class="glyphicon glyphicon-edit answer-icon" aria-hidden="true"></span>
-        </div>
-        <div class="iquestion-info">
-            <div class="iquestion-info_body">
-                <div text-angular="text-angular" name="description" ng-bind-html="answer.description"></div>
-            </div>
-        </div>
-    </div>
 </div>
 
-<!-- ng-if="!answer.chosen && QuestionsShow.getCurrentUser()._id === QuestionsShow.question.owner._id" -->
+<h3 class="QshowAnswer">Post your answer below:</h3>
+<form ng-submit="QuestionsShow.submitAnswer()" class="clearfix">
+ <div class="row">
+   <div class="container codeEditor">
+     <h4>Code Editor</h4>
+     <div ta-toolbar="[['pre'], ['insertLink']]" class="btn-toolbar" text-angular="text-angular" name="description" ng-model="QuestionsShow.newAnswer.description" ></div>
+   </div>
+ </div>
+ <input type="submit" class="btn btn-primary pull-right" />
+</form>
+
+<hr>
+
+<h2 class="QshowAnswers">Previous Answers:</h2>
+
+<div class="iquestion-inner_border" ng-repeat="answer in QuestionsShow.question.answers">
+   <div class="iquestion-inner">
+       <div class="iquestion-icon" ng-click="QuestionsShow.selectBest(answer, $event)" ng-if="QuestionsShow.getCurrentUser()._id === QuestionsShow.question.owner._id">
+         <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+       </div>
+       <div class="iquestion-info">
+           <div class="iquestion-info_body">
+               <div text-angular="text-angular" name="description" ng-bind-html="answer.description"></div>
+           </div>
+       </div>
+   </div>
+</div>
 
 </section>
