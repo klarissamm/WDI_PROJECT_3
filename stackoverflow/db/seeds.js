@@ -40,11 +40,23 @@ function dropCollections(done) {
 function createLanguages(done) {
   Language
     .create([
+      { name: 'C++', icon: 'devicon-cplusplus-plain-wordmark colored'},
       { name: 'JavaScript', icon: 'devicon-javascript-plain colored' },
       { name: 'Ruby', icon: 'devicon-ruby-plain-wordmark colored'},
       { name: 'Python', icon: 'devicon-python-plain colored'},
-      { name: 'C++', icon: 'devicon-cplusplus-plain-wordmark colored'},
       { name: 'Grunt', icon: 'devicon-grunt-plain-wordmark colored'},
+      { name: 'C', icon: 'devicon-c-plain colored'},
+      { name: 'AngularJS', icon: 'devicon-angularjs-plain colored'},
+      { name: 'PHP', icon: 'devicon-php-plain colored'},
+      { name: 'Go', icon: 'devicon-go-plain colored'},
+      { name: 'React', icon: 'devicon-react-original-wordmark colored'},
+      { name: 'NodeJS', icon: 'devicon-nodejs-plain-wordmark colored'},
+      { name: 'HTML5', icon: 'devicon-html5-plain-wordmark colored'},
+      { name: 'BackboneJS', icon: 'devicon-backbonejs-plain-wordmark colored'},
+      { name: 'Rails', icon: 'devicon-rails-plain-wordmark colored'},
+      { name: 'Mongodb', icon: 'devicon-mongodb-plain-wordmark colored'},
+      { name: 'Java', icon: 'devicon-java-plain-wordmark colored'},
+      { name: 'MySQL', icon: 'devicon-mysql-plain colored'},
       { name: 'Erlang', icon: 'devicon-erlang-plain-wordmark colored'}
     ], (err, languages) => {
       if (err) return done(err);
