@@ -5,7 +5,7 @@
     <div class="circle" style="background-image: url({{ user.image }})"></div>
     <div class="card-block">
       <h4 class="card-title">{{ user.name }}</h4>
-      <p>Potentially little snipet?</p>
+      <p>{{ user.language }}</p>
       <a ui-sref="userShow({ id: user._id})" href="#" class="btn btn-primary">More</a>
     </div>
   </div>

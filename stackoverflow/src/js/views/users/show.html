@@ -15,6 +15,8 @@
         <button ng-if="userShow.isCurrentUser()" class="btn btn-warning" ng-click="userShow.delete()">Delete</button>
       </center>
 
+<!-- Need to set up a delete alert for above delete -->
+
     </center>
   </div>
 
@@ -34,10 +36,10 @@
 
   <div class="span3 well col-sm-6 col-sm-offset-1 col-xs-12">
     <div class="questionsOnProfile">
-      <h4>Questions:</h4>
+      <h4>Questions: (need to link to answers page)</h4>
       <h6 class="mb-1" ng-repeat="question in userShow.user.questions">
         <p class="questionsOnProfile" ui-sref="questionsShow({id: question})">
-          <span class="glyphicon glyphicon-circle-arrow-right"></span>   {{ question.title}} </p>
+          <span class="glyphicon glyphicon-circle-arrow-right"></span> {{ question.title }} </p>
       </h6>
       </div>
   </div>
