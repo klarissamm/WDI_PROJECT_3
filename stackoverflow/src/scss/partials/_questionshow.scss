@@ -31,6 +31,16 @@ span {
   font-size: 1.5rem;
 }
 
+
+.modal {
+  text-align: center;
+  .modal-image {
+    max-height: 150px;
+    width: auto;
+  }
+}
+
+
 .QshowAnswer {
   padding-top: 10px;
   font-weight: bold;
