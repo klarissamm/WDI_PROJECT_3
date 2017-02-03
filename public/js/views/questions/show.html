@@ -1,0 +1,43 @@
+<section class="container">
+<h2 class="QshowHeadline">Earn <span>£{{QuestionsShow.question.coins}}</span> for the charity of your choice</h2>
+
+<div class="questionWrapper">
+
+
+<h3 class="QshowTitle">{{QuestionsShow.question.title}}</h3>
+<p class="QshowOwner" ui-sref="userShow({id: QuestionsShow.question.owner._id})">Posted by: <span>{{QuestionsShow.question.owner.name}}</span></p>
+
+<p class="QshowDescription" ng-bind-html="QuestionsShow.question.description"></p>
+
+</div>
+
+<h3 class="QshowAnswer">Post your answer below:</h3>
+<form ng-submit="QuestionsShow.submitAnswer()" class="clearfix">
+  <div class="row">
+    <div class="container codeEditor">
+      <h4>Code Editor</h4>
+      <div ta-toolbar="[['pre'], ['insertLink']]" class="btn-toolbar" text-angular="text-angular" name="description" ng-model="QuestionsShow.newAnswer.description" ></div>
+    </div>
+  </div>
+  <input type="submit" class="btn btn-primary pull-right" />
+</form>
+
+<hr>
+
+<h2 class="QshowAnswers">Previous Answers:</h2>
+
+<div class="iquestion-inner_border" ng-repeat="answer in QuestionsShow.question.answers">
+
+    <div class="iquestion-inner">
+        <div class="iquestion-icon" ng-click="QuestionsShow.selectBest(answer, $event)" ng-if="QuestionsShow.getCurrentUser()._id === QuestionsShow.question.owner._id">
+          <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+        </div>
+        <div class="iquestion-info">
+            <div class="iquestion-info_body">
+                <div text-angular="text-angular" ng-bind-html="answer.description"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</section>

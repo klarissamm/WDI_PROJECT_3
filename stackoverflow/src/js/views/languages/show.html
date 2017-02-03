@@ -1,9 +1,0 @@
-<section class="container">
-  <h1 class="languages-index">{{ languageShow.language.name }}</h1>
-  <ul class="list-group">
-  <li class="language-show list-group-item" ng-repeat="question in languageShow.language.questions">
-    {{ question.title}}
-      <button type="button" class="btn btn-primary btn-lg round btn-question" ui-sref="questionsShow({id: question._id})">View Question</button>
-  </li>
-</ul>
-</section>

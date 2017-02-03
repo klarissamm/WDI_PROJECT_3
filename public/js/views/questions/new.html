@@ -1,0 +1,37 @@
+<section class="container">
+<h2 class="newQuestion">New Question</h2>
+
+<form ng-submit="questionsCreate.questionsCreate()">
+  <div class ="form-group">
+    <label for="language">Language</label>
+    <select class="form-control" ng-model="questionsCreate.question.language">
+       <option value="">Please select a language</option>
+       <option ng-repeat="language in questionsCreate.languages" value="{{language._id}}">{{language.name}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="title">Question Headline</label>
+    <input type="text" class="form-control" id="title" placeholder="What's your question? Be specific." ng-model="questionsCreate.question.title">
+  </div>
+
+<div class="row">
+  <div class="form-group col-md-2 question-new">
+    <label for="coins">Incentive offered</label>
+    <div class="input-group">
+      <div class="input-group-addon">£</div>
+      <input type="number" class="form-control" id="coins" placeholder="Amount" min="0" ng-model="questionsCreate.question.coins">
+      <div class="input-group-addon">.00</div>
+  </div>
+  </div>
+
+  <div class="row">
+    <div class="container">
+      <h3 class="QuestionAskBelow">Type your question below:</h3>
+      <div ta-toolbar="[['pre'], ['insertImage']]" text-angular="text-angular" name="description" ng-model="questionsCreate.question.description"></div>
+    </div>
+  </div>
+  </div>
+  <input type="submit" class="btn btn-primary pull-right" value="Add">
+</form>
+</section>
