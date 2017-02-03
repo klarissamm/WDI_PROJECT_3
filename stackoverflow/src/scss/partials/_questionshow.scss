@@ -10,6 +10,7 @@ span {
 .questionWrapper {
   padding: 20px;
   border: 1px solid #bababa;
+  border-radius: 6px;
 }
 
 .QshowTitle {
@@ -58,8 +59,16 @@ input.btn.btn-primary.pull-right:focus{
   float: right;
 }
 
+
 .iquestion-inner_border {
   p {
     font-size: 16px;
   }
+
+div.iquestion-inner_border.ng-scope{
+  border-radius: 6px;
+}
+
+div.iquestion-info{
+  border-radius: 6px;
 }
