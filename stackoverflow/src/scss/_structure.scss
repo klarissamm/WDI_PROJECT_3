@@ -11,7 +11,7 @@ main {
 }
 
 footer {
-  // display: none;
+  display: none;
   position:fixed;
   bottom: 0px;
   width:100%;
@@ -26,6 +26,7 @@ footer {
     text-align: center;
   }
 }
+
 
 ::-webkit-scrollbar {
     display: none;

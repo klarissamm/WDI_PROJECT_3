@@ -83,3 +83,40 @@ div.iquestion-inner_border.ng-scope{
 div.iquestion-info{
   border-radius: 6px;
 }
+
+div.modal-content{
+  border: 2px solid #ffffff;
+}
+
+h2.modal-title{
+  font-weight: bold;
+}
+div.modal-content{
+  border-radius: 6px;
+}
+
+div.modal-header {
+  border-radius: 6px;
+  background: #3dc58b;
+  color: #ffffff;
+}
+
+
+div.modal-footer {
+  border-radius: 6px;
+  background: #3dc58b;
+  color: #ffffff;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 4px;
+}
+
+div.unchosenIcon{
+  background: $border;
+  opacity: 0.8;
+}
+
+div.chosenIcon{
+  background: $primary-color;
+  opacity: 0.8;
+}
