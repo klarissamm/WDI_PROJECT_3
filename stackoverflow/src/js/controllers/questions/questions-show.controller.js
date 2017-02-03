@@ -6,27 +6,8 @@ QuestionsShowCtrl.$inject = ['Question', '$stateParams', 'Answer', 'CurrentUserS
 function QuestionsShowCtrl(Question, $stateParams, Answer, CurrentUserService, $http, User){
   const vm = this;
 
-// vm.getOwner = function(question){
-//
-//   User
-//   .get({ id: question.owner})
-//   .$promise
-//   .then(response => {
-//     console.log(response);
-//   });
-// };
-// use factory to use get request
-
-
-// use factory to use get request
-//   vm.precolor = function(){
-//     let color = '#';
-//     let letters = ['000000','FF0000','00FF00','0000FF','FFFF00','00FFFF','FF00FF','C0C0C0'];
-//     color += letters[Math.floor(Math.random() * letters.length)];
-//     document.getElementByClassName('pre').style.color = color; // Setting the random color on your div element.
-// }
-
   vm.question = Question.get($stateParams);
+  console.log(vm.question);
   vm.newAnswer = {
     question: $stateParams.id
   };
@@ -50,6 +31,20 @@ function QuestionsShowCtrl(Question, $stateParams, Answer, CurrentUserService, $
 // Pass answer to selectBest function, it is saved in newAnswer(above). We validate the answer.
 
   vm.selectBest = function(answer, $event){
+    User
+    .get({id: answer.owner})
+    .$promise
+    .then(response => {
+      vm.charityUser = response;
+      vm.charityChosen = response.charity;
+      $http({
+        method: 'GET',
+        url: `https://api.justgiving.com/06beb149/v1/charity/search?charityId=${vm.charityChosen}`
+      }).then(response => {
+        vm.charity = response.data.charitySearchResults[0];
+        $('#myCharityModal').modal('show');
+      });
+    });
     $http({
       method: 'PUT',
       url: `http://localhost:7000/api/questions/${$stateParams.id}/answers/${answer._id}`,
@@ -57,9 +52,10 @@ function QuestionsShowCtrl(Question, $stateParams, Answer, CurrentUserService, $
     }).then(response => {
       for (var i = 0; i < vm.question.answers.length; i++) {
         vm.question.answers[i].chosen = false;
+        // angular.element(document.getElementsByClassName('iquestion-icon')[i]).removeClass('glyphicon-check').addClass('glyphicon-edit');
       }
       vm.question.answers[vm.question.answers.indexOf(answer)].chosen = true;
-      angular.element($event.target).removeClass('glyphicon-edit').addClass('glyphicon-check');
+      // angular.element($event.target).removeClass('glyphicon-edit').addClass('glyphicon-check');
     });
   };
 }

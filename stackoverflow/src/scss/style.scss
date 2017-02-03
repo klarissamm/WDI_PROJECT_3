@@ -39,7 +39,6 @@
 // }
 
 .iquestion-icon{
-    background: black;
     background-size: 71px 71px;
     border-radius: 100%;
     border: 2px solid $bg-color;
@@ -52,6 +51,14 @@
     -webkit-box-shadow: 0px 1px 80px -16px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 1px 80px -16px rgba(0,0,0,0.75);
     box-shadow: 0px 1px 80px -16px rgba(0,0,0,0.75);
+}
+
+.unchosenIcon {
+  background: black;
+}
+
+.chosenIcon {
+  background: $primary-color;
 }
 
 .glyphicon-check{
