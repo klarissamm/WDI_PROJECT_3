@@ -1,0 +1,68 @@
+button.btn.btn-warning.ng-scope{
+  background: #ffffff;
+  color:#3dc58b;
+  border: 1px solid #3dc58b;
+}
+
+.media-heading {
+  span {
+    color: black;
+  }
+}
+
+button.btn.btn-primary.ng-scope{
+  background: #3dc58b;
+  border: 1px solid #ffffff;
+  padding: 6px 20px;
+}
+
+a.btn.btn-primary:hover{
+  background: #039A59;
+  border: 1px solid #ffffff;
+}
+
+
+.charityImage {
+  height: 80px;
+  width: auto;
+  margin: 10px;
+}
+
+div.container {
+  margin-top: 20px;
+}
+
+.userShowQuestions {
+  font-size: 10px;
+}
+
+.questionsOnProfile {
+  text-align: left;
+}
+
+p.questionsOnProfile {
+  color: #3dc58b;
+  font-size: 1.5em;
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+.wantLeft {
+  text-align: left;
+}
+
+div.circle {
+  margin: 0 auto;
+  border-radius: 100%;
+  width: 150px;
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+}
+
+// p.ng-binding {
+//   text-align: center; important!
+//   text-align: justify; imporant!
+// }

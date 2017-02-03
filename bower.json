@@ -1,0 +1,42 @@
+{
+  "name": "stackoverflow",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "almikola <almikola@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/klarissamm/WDI_PROJECT_3",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-ui-router": "^0.3.2",
+    "angular-resource": "^1.5.9",
+    "angular-jwt": "^0.1.9",
+    "angular-bootstrap": "^2.5.0",
+    "bootstrap": "^3.3.7",
+    "textAngular": "^1.5.16",
+    "jquery": "^3.1.1"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js",
+        "fonts/*"
+      ]
+    },
+    "font-awesome": {
+      "main": [
+        "css/font-awesome.css",
+        "fonts/*"
+      ]
+    }
+  }
+}
