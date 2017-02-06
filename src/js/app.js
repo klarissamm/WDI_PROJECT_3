@@ -6,3 +6,6 @@ angular
     'ui.bootstrap',
     'textAngular'
   ]);
+
+
+//note
